@@ -1,49 +1,46 @@
 import { useState } from "react";
-import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const SortDropdown = ({ handleSort }) => {
   const [showSortMenu, setShowSortMenu] = useState(false);
+  const [selectedSort, setSelectedSort] = useState("New Arrival"); // Default selected option
+
+  const handleSelect = (sortType, label) => {
+    setSelectedSort(label);
+    handleSort(sortType);
+    setShowSortMenu(false);
+  };
 
   return (
-    <div className="relative w-[20rem]">
-    
-       
-
-      {/* Sticky Sort Button */}
-      <div className="sticky top-96 w-[20rem] h-10 flex justify-end  bg-white ">
-        <button
-          className="flex items-center text-gray-600 font-medium px-4 py-2 rounded-lg bg-white hover:bg-gray-100 transition-all duration-400 cursor-pointer"
-          onClick={() => setShowSortMenu(!showSortMenu)}
-        >
-          SORT BY
-          {showSortMenu ? <FaChevronUp className="ml-2 text-sm" /> : <FaChevronDown className="ml-2 text-sm" />}
-        </button>
-
-        {/* Dropdown Menu */}
-        {showSortMenu && (
-          <div
-            className="absolute left-1/2 transform -translate-x-1/2 mt-10 ml-22 bg-white shadow-lg rounded-lg w-40 z-[999] transition-all duration-300"
-          >
-            <ul className="text-left">
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => { handleSort("best_selling"); setShowSortMenu(false); }}>
-                Best Selling
-              </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => { handleSort("new_arrival"); setShowSortMenu(false); }}>
-                New Arrival
-              </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => { handleSort("price_low_high"); setShowSortMenu(false); }}>
-                Price: Low to High
-              </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => { handleSort("price_high_low"); setShowSortMenu(false); }}>
-                Price: High to Low
-              </li>
-            </ul>
-          </div>
-        )}
+    <div className="relative w-64">
+      {/* Sort Button */}
+      <div
+        className="flex justify-between items-center border border-gray-300 px-4 py-2 rounded-lg cursor-pointer"
+        onClick={() => setShowSortMenu(!showSortMenu)}
+      >
+        <span className="text-gray-600">
+          Sort by: <span className="font-bold">{selectedSort}</span>
+        </span>
+        {showSortMenu ? <FaChevronUp className="text-gray-500" /> : <FaChevronDown className="text-gray-500" />}
       </div>
 
-      {/* Scrollable content */}
-      
+      {/* Dropdown Menu */}
+      {showSortMenu && (
+        <ul className="absolute left-0 mt-2 w-full bg-white border border-gray-200 shadow-md rounded-lg z-50">
+          <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleSelect("best_selling", "Best Selling")}>
+            Best Selling
+          </li>
+          <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleSelect("new_arrival", "New Arrival")}>
+            New Arrival
+          </li>
+          <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleSelect("price_low_high", "Price: Low to High")}>
+            Price: Low to High
+          </li>
+          <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleSelect("price_high_low", "Price: High to Low")}>
+            Price: High to Low
+          </li>
+        </ul>
+      )}
     </div>
   );
 };

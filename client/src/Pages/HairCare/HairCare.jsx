@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import SortDropdown from "../../Component/SortDropdown/SortDropdown";
 import productsData from "../../data/products";
 import CategoryBanner from "../../Component/CatagoryBanner/CategoryBanner";
 import FilterSidebar from "../../Component/FilterSidebar/FilterSidebar";
-import { FaBars } from "react-icons/fa"; // Hamburger Icon
-import { IoClose } from "react-icons/io5"; // Close Icon
+import { FaBars } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 const HairCare = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [sortOption, setSortOption] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isFilterOpen, setIsFilterOpen] = useState(false); // Track if the filter is open
-  const [isHoveringHamburger, setIsHoveringHamburger] = useState(false); // Track if hovering over hamburger
-  const [isHoveringSidebar, setIsHoveringSidebar] = useState(false); // Track if hovering over sidebar
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isHoveringHamburger, setIsHoveringHamburger] = useState(false);
+  const [isHoveringSidebar, setIsHoveringSidebar] = useState(false);
   const category = "Hair Care";
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const hairCareProducts = productsData.filter(
@@ -25,9 +29,16 @@ const HairCare = () => {
     setProducts(hairCareProducts);
     setFilteredProducts(hairCareProducts);
     setLoading(false);
+
+    const params = new URLSearchParams(location.search);
+    const savedSortOption = params.get("sort");
+
+    if (savedSortOption) {
+      setSortOption(savedSortOption);
+      handleSort(savedSortOption, personalCareProducts);
+    }
   }, []);
 
-  // Sorting Function
   const handleSort = (sortKey) => {
     let sortedProducts = [...filteredProducts];
 
@@ -45,14 +56,17 @@ const HairCare = () => {
         sortedProducts.sort((a, b) => b.price - a.price);
         break;
       default:
-        sortedProducts = [...products]; // Reset to original order
+        sortedProducts = [...products];
     }
 
     setSortOption(sortKey);
     setFilteredProducts(sortedProducts);
+    
+    const params = new URLSearchParams(location.search);
+    params.set("sort", sortKey);
+    navigate({ search: params.toString() });
   };
 
-  // Show or hide the filter sidebar based on hover states
   useEffect(() => {
     if (isHoveringHamburger || isHoveringSidebar) {
       setIsFilterOpen(true);
@@ -63,58 +77,44 @@ const HairCare = () => {
 
   return (
     <>
-      <div>
-        <CategoryBanner 
-          title={category} 
-          imageSrc="Haircare_banner.png" 
-          texts={[
-            ["Nourish Your Locks, Elevate Your Confidence!", "Because healthy, gorgeous hair is every woman's crown!"],
-            ["Healthy Hair, Happy You!", "Pamper your locks with the love they deserve."],
-            ["Nourish, Strengthen, Shine!", "Because great hair starts with great care."],
-            ["Hair Love, Naturally!", "Give your hair the best with nature-inspired care."],
-            ["Stronger Strands, Beautiful You!", "Because every day is a great hair day."]
-          ]} 
-        />
-      </div>
-
-      {/* Filter and Sorting Section */}
-      <div className="flex justify-between items-center px-5 mt-4">
-        {/* Hamburger Button - Aligned with Sort By */}
+      <CategoryBanner 
+        title={category} 
+        imageSrc="Haircare_banner.png" 
+        texts={[
+          ["Nourish Your Locks, Elevate Your Confidence!", "Because healthy, gorgeous hair is every woman's crown!"],
+          ["Healthy Hair, Happy You!", "Pamper your locks with the love they deserve."],
+          ["Nourish, Strengthen, Shine!", "Because great hair starts with great care."],
+          ["Hair Love, Naturally!", "Give your hair the best with nature-inspired care."],
+          ["Stronger Strands, Beautiful You!", "Because every day is a great hair day."]
+        ]} 
+      />
+      <div className="flex justify-between items-center px-5 mt-4 mb-6">
         <button 
           className="bg-gray-800 text-white p-2 rounded-lg shadow-lg flex items-center -ml-6"
-          onMouseEnter={() => setIsHoveringHamburger(true)} // Track hover over hamburger
-          onMouseLeave={() => setIsHoveringHamburger(false)} // Track mouse leave from hamburger
+          onMouseEnter={() => setIsHoveringHamburger(true)}
+          onMouseLeave={() => setIsHoveringHamburger(false)}
         >
           <FaBars className="text-xl" />
         </button>
-
-        {/* Sort Dropdown */}
         <div className="relative z-10 w-auto">
-        <SortDropdown handleSort={handleSort} />
+        <SortDropdown handleSort={handleSort} selectedSort={sortOption} />
         </div>
       </div>
-
-      {/* Sidebar for Filters with Transition */}
       <div
-        className={`fixed top-0 left-0 h-full w-70 bg-white border-r border-gray-300 p-4 transform transition-transform duration-300 ease-in-out z-[50] shadow 
+        className={`fixed top-0 left-0 h-full w-auto bg-white border-r border-gray-300 p-4 overflow-y-auto max-h-screen transform transition-transform duration-300 ease-in-out z-[50] shadow 
           ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}`}
-        onMouseEnter={() => setIsHoveringSidebar(true)} // Track hover over sidebar
-        onMouseLeave={() => setIsHoveringSidebar(false)} // Track mouse leave from sidebar
+        onMouseEnter={() => setIsHoveringSidebar(true)}
+        onMouseLeave={() => setIsHoveringSidebar(false)}
       >
-        {/* Close Button */}
         <button 
           className="absolute top-4 right-4 text-gray-600 text-3xl"
-          onClick={() => setIsFilterOpen(false)} // Close filter on click
+          onClick={() => setIsFilterOpen(false)}
         >
           <IoClose />
         </button>
-
-        <FilterSidebar category={category} products={products} setFilteredProducts={setFilteredProducts} />
+        <FilterSidebar category={category} allProducts={products} setFilteredProducts={setFilteredProducts} />
       </div>
-
-      {/* Product Listing */}
       <div className="w-full">
-        {/* Loading State */}
         {loading ? (
           <p className="text-center text-lg">Loading products...</p>
         ) : (

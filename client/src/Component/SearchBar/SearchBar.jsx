@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-
-const suggestions = ["SkinCare", "Hygiene", "PersonalCare", "HairCare", "LipCare"];
+import products from "../../data/products"; // Import products.js
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]); // Categories from JSON
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const [backgroundText, setBackgroundText] = useState("");
@@ -14,13 +14,21 @@ const SearchBar = () => {
   const navigate = useNavigate();
   const searchRef = useRef(null);
 
-  // Auto-highlight suggestions cycling effect
+  // Extract unique categories from products.js
   useEffect(() => {
-    const interval = setInterval(() => {
-      setHighlightIndex((prev) => (prev + 1) % suggestions.length);
-    }, 2000);
-    return () => clearInterval(interval);
+    const uniqueCategories = [...new Set(products.map((item) => item.category))];
+    setSuggestions(uniqueCategories);
   }, []);
+
+  // Auto-highlight cycling effect
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      const interval = setInterval(() => {
+        setHighlightIndex((prev) => (prev + 1) % suggestions.length);
+      }, 1500);
+      return () => clearInterval(interval);
+    }
+  }, [suggestions]);
 
   // Filter suggestions based on input
   useEffect(() => {
@@ -32,15 +40,16 @@ const SearchBar = () => {
 
       // Set background hint text
       const firstMatch = matches[0];
-      setBackgroundText(firstMatch && firstMatch.toLowerCase() !== query.toLowerCase()
-        ? firstMatch.replace(new RegExp(`^${query}`, "i"), query)
-        : ""
+      setBackgroundText(
+        firstMatch && firstMatch.toLowerCase() !== query.toLowerCase()
+          ? firstMatch.replace(new RegExp(`^${query}`, "i"), query)
+          : ""
       );
     } else {
       setFilteredSuggestions([]);
       setBackgroundText("");
     }
-  }, [query]);
+  }, [query, suggestions]);
 
   // Handle input change
   const handleChange = (e) => {
@@ -50,28 +59,42 @@ const SearchBar = () => {
 
   // Handle selecting a suggestion
   const handleSuggestionClick = (suggestion) => {
+    const formattedCategory = suggestion.replace(/\s+/g, ""); // Remove spaces
     setQuery(suggestion);
     setFilteredSuggestions([]); // Hide dropdown
-    navigate(`/${suggestion}`);
+    navigate(`/${formattedCategory}`); // Navigate without spaces
   };
 
   // Handle search execution
   const handleSearch = () => {
-    const formattedQuery = query.replace(/\s+/g, "");
-    if (suggestions.includes(formattedQuery)) {
-      setFilteredSuggestions([]); // Hide dropdown
+    console.log("Search triggered with query:", query);
+
+    if (!query.trim()) {
+      console.log("Empty search, returning...");
+      return;
+    }
+
+    const formattedQuery = query.replace(/\s+/g, ""); // Remove spaces
+    console.log("Navigating to:", `/${formattedQuery}`);
+
+    if (suggestions.map((cat) => cat.toLowerCase()).includes(query.toLowerCase())) {
+      setFilteredSuggestions([]);
       navigate(`/${formattedQuery}`);
     } else {
-      alert("Page not found");
+      alert("Category not found");
     }
   };
 
   // Handle keyboard events for navigation and selection
   const handleKeyDown = (e) => {
     if (e.key === "ArrowDown") {
-      setHighlightIndex((prev) => (prev < filteredSuggestions.length - 1 ? prev + 1 : 0));
+      setHighlightIndex((prev) =>
+        prev < filteredSuggestions.length - 1 ? prev + 1 : 0
+      );
     } else if (e.key === "ArrowUp") {
-      setHighlightIndex((prev) => (prev > 0 ? prev - 1 : filteredSuggestions.length - 1));
+      setHighlightIndex((prev) =>
+        prev > 0 ? prev - 1 : filteredSuggestions.length - 1
+      );
     } else if (e.key === "Enter") {
       if (highlightIndex >= 0 && filteredSuggestions.length > 0) {
         handleSuggestionClick(filteredSuggestions[highlightIndex]);
@@ -93,7 +116,7 @@ const SearchBar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setFilteredSuggestions([]); // Hide dropdown
+        setFilteredSuggestions([]);
       }
     };
 
@@ -110,7 +133,10 @@ const SearchBar = () => {
         <FaSearch
           className="text-gray-500 ml-2 cursor-pointer"
           size={14}
-          onClick={handleSearch}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            handleSearch();
+          }}
         />
 
         {/* Input Field with Background Hint */}
@@ -121,7 +147,11 @@ const SearchBar = () => {
           <input
             type="text"
             className="w-full px-3 py-1 text-sm leading-tight outline-none text-gray-800 bg-transparent relative z-10"
-            placeholder={`Search ${suggestions[highlightIndex !== -1 ? highlightIndex : 0]}...`}
+            placeholder={`Search ${
+              suggestions.length > 0
+                ? suggestions[highlightIndex !== -1 ? highlightIndex : 0] || "Products"
+                : "Products"
+            }...`}
             value={query}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
@@ -138,7 +168,7 @@ const SearchBar = () => {
         )}
       </div>
 
-      {/* Suggestions Dropdown - Hidden if a valid selection is made */}
+      {/* Suggestions Dropdown */}
       {filteredSuggestions.length > 0 && !suggestions.includes(query) && (
         <ul className="absolute left-0 w-57 bg-white border border-gray-300 shadow-lg rounded-b-lg z-50 max-h-48 overflow-y-auto ml-3.5">
           {filteredSuggestions.map((suggestion, index) => (

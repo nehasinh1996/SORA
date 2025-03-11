@@ -1,95 +1,64 @@
-import { useState, useEffect, useRef } from "react";
-import { IoClose } from "react-icons/io5"; // Close Icon
+import React, { useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilters, toggleFilter, resetFilters } from "../../redux/filterSlice";
+import { getFiltersForCategory } from "../../utils/filterUtils";
 
-const FilterSidebar = ({ products, setFilteredProducts, category }) => {
-  const [selectedFilters, setSelectedFilters] = useState(new Set());
-  const sidebarRef = useRef(null);
+const FilterSidebar = ({ allProducts, category }) => {
+  const dispatch = useDispatch();
 
-  const filterOptions = {
-    "Lip Care": {
-      "Lip Concerns": ["Chapped & Dry Lips", "Dark Lips", "Sensitive Lips", "Cracked & Peeling Lips", "Sun-Damaged Lips"],
-      "Lip Treatment Type": ["Hydrating & Moisturizing", "Repair & Healing", "Sun Protection (SPF)", "Exfoliation & Scrubbing", "Pigmentation Lightening"],
-      "Ingredients": ["Shea Butter", "Hyaluronic Acid", "Beeswax", "Vitamin E", "SPF Protection", "Natural Oils (Coconut, Almond)"]
-    },
-    "Skin Care": {
-      "Skin Concerns": ["Acne & Pimples", "Dry & Dehydrated Skin", "Dark Spots & Pigmentation", "Wrinkles & Fine Lines", "Sun Damage"],
-      "Skin Treatment Type": ["Hydration & Moisturization", "Anti-Aging & Wrinkle Care", "Brightening & Whitening", "Exfoliation & Scrubbing", "Repair & Healing"],
-      "Ingredients": ["Hyaluronic Acid", "Vitamin C", "Retinol", "Niacinamide", "Aloe Vera"]
-    },
-    "Personal Care": {
-      "Concerns": ["Body Odor", "Skin Sensitivity", "Dry & Rough Skin", "Dark Underarms", "Sweat Control"],
-      "Treatment Type": ["Body Moisturizing", "Fragrance & Deodorant", "Skin Soothing & Cooling", "Exfoliation & Brightening"],
-      "Ingredients": ["Shea Butter", "Coconut Oil", "Essential Oils (Lavender,Rose)", "Charcoal", "Aloe Vera"]
-    },
-    "Hygiene": {
-      "Hygiene Concerns": ["Bad Breath", "Germ Protection", "Feminine Hygiene", "Sweat & Body Odor"],
-      "Hygiene Type": ["Oral Care", "Intimate Care", "Hand & Body Sanitization", "Foot Care"],
-      "Ingredients": ["Neem & Tulsi", "Activated Charcoal", "Menthol", "Aloe Vera"]
-    },
-    "Hair Care": {
-      "Hair Concerns": ["Hair Fall & Thinning", "Dandruff & Scalp Issues", "Dry & Frizzy Hair", "Split Ends", "Oily Scalp"],
-      "Hair Treatment Type": ["Hair Growth & Strengthening", "Dandruff Control", "Deep Conditioning", "Heat & Pollution Protection", "Scalp Nourishment"],
-      "Ingredients": ["Argan Oil", "Keratin", "Biotin", "Onion Extract", "Tea Tree Oil", "Hibiscus Extract"]
-    }
-  };
-
-  const selectedFiltersData = filterOptions[category] || {};
-
-  const handleCheckboxChange = (filter) => {
-    setSelectedFilters((prevFilters) => {
-      const updatedFilters = new Set(prevFilters);
-      updatedFilters.has(filter) ? updatedFilters.delete(filter) : updatedFilters.add(filter);
-      return new Set(updatedFilters);
-    });
-  };
+  const selectedCategory = useSelector((state) => state.filters.selectedCategory) || category;
+  const filters = useSelector((state) => state.filters.availableFilters);
+  const appliedFilters = useSelector((state) => state.filters.selectedFilters);
 
   useEffect(() => {
-    if (selectedFilters.size > 0) {
-      setFilteredProducts(
-        products.filter((product) => [...selectedFilters].some((filter) => product.tags.includes(filter)))
-      );
-    } else {
-      setFilteredProducts(products);
+    if (selectedCategory && allProducts.length) {
+      dispatch(setFilters(getFiltersForCategory(selectedCategory, allProducts)));
     }
-  }, [selectedFilters, products, setFilteredProducts]);
+  }, [selectedCategory, JSON.stringify(allProducts), dispatch]);
 
-  const clearFilters = () => setSelectedFilters(new Set());
+  const filterEntries = useMemo(() => Object.entries(filters), [filters]);
 
   return (
-    <div className="relative inline-block text-left" ref={sidebarRef}>
-      <div className="flex justify-between items-center">
-        <h2 className="text-lg font-semibold">Filters</h2>
-        <button
-          className="text-gray-600 hover:text-gray-900 text-2xl"
-          aria-label="Close filter sidebar"
-          onClick={() => setFilteredProducts(products)} // Close the filter
+    <div className="filter-sidebar mt-6 p-4 bg-white text-xs ">
+      {/* Header */}
+      <div className="flex w-full justify-between items-center mb-4">
+        <h2 className="font-semibold text-sm">FILTERS</h2>
+        <button 
+          onClick={() => dispatch(resetFilters())} 
+          className="text-black text-sm font-medium hover:underline"
         >
-          <IoClose />
+          CLEAR ALL
         </button>
       </div>
-      {Object.entries(selectedFiltersData).map(([categoryName, filters]) => (
-        <div key={categoryName} className="mt-2">
-          <h3 className="font-semibold pb-2">{categoryName}</h3>
-          {filters.map((filter) => (
-            <label key={filter} className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={selectedFilters.has(filter)}
-                onChange={() => handleCheckboxChange(filter)}
-                className="w-4 h-4"
-              />
-              <span className="text-gray-700">{filter}</span>
-            </label>
-          ))}
-          <hr className="my-4 border-t border-gray-400 w-[calc(100%+2rem)] -mx-4" />
-        </div>
-      ))}
-      <button
-        className="w-full bg-red-500 text-white p-2 mt-4 rounded-lg shadow hover:bg-red-600"
-        onClick={clearFilters}
-      >
-        Clear All Filters
-      </button>
+
+      {/* Filters List */}
+      {filterEntries.length > 0 ? (
+        filterEntries.map(([filterType, filterValues]) => (
+          <div key={filterType} className="mb-4">
+            <h3 className="font-semibold pb-2 text-gray-800">{filterType.replace("_", " ")}</h3>
+            <div className="space-y-2">
+              {filterValues.length > 0 ? (
+                filterValues.map((value) => (
+                  <label key={value} className="flex items-center space-x-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={appliedFilters[filterType]?.includes(value) || false}
+                      onChange={() => dispatch(toggleFilter({ filterType, value }))}
+                      className="w-4 h-4  accent-black"
+                    />
+                    <span className="text-gray-700">{value}</span>
+                  </label>
+                ))
+              ) : (
+                <p className="text-gray-500">No filters available</p>
+              )}
+            </div>
+            <hr className="mt-3 border-gray-300" />
+          </div>
+        ))
+      ) : (
+        <p className="text-gray-500">No filters available</p>
+      )}
     </div>
   );
 };

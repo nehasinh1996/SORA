@@ -80,7 +80,7 @@ const Hygiene = () => {
       </div>
 
       {/* Filter and Sorting Section */}
-      <div className="flex justify-between items-center px-5 mt-4">
+      <div className="flex justify-between items-center px-5 mt-4 mb-6">
         {/* Hamburger Button */}
         <button
           className="bg-gray-800 text-white p-2 rounded-lg shadow-lg flex items-center -ml-6"
@@ -97,9 +97,9 @@ const Hygiene = () => {
       </div>
 
       {/* Sidebar for Filters with Transition */}
-      <div
-        className={`fixed top-0 left-0 h-full w-70 bg-white border-r border-gray-300 p-4 transform transition-transform duration-300 ease-in-out z-[50] shadow 
-          ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}`}
+      <div className={`fixed top-0 left-0 h-full w-auto bg-white border-r border-gray-300 p-4 overflow-y-auto max-h-screen transform transition-transform duration-300 ease-in-out z-[50] shadow 
+        ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}`}
+
         onMouseEnter={() => setIsHoveringSidebar(true)}
         onMouseLeave={() => setIsHoveringSidebar(false)}
       >
@@ -113,28 +113,26 @@ const Hygiene = () => {
 
         <FilterSidebar
           category={category}
-          products={products}
+          allProducts={products}
           setFilteredProducts={setFilteredProducts}
         />
       </div>
 
       {/* Product Listing */}
       <div className="w-full">
-        {loading ? (
-          <p className="text-center text-lg">Loading products...</p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 p-5">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))
-            ) : (
-              <p className="text-center text-lg col-span-4">
-                No hygiene products available.
-              </p>
-            )}
-          </div>
-        )}
+      {loading ? (
+  <p className="text-center text-lg">Loading products...</p>
+) : (
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 p-5">
+    {filteredProducts.length > 0 ? (
+      filteredProducts.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))
+    ) : (
+      <p className="text-center text-lg col-span-4">No lip care products available.</p>
+    )}
+  </div>
+)}
       </div>
     </>
   );

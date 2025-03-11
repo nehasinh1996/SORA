@@ -48,7 +48,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-30">
       <div
         className="rounded-2xl transition-all duration-300 cursor-pointer w-full sm:w-[260px] bg-white hover:shadow-lg hover:scale-105 flex flex-col relative mx-auto overflow-hidden"
         onMouseEnter={() => setHovered(true)}

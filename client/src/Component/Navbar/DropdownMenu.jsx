@@ -1,73 +1,63 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion for smooth animation
+import { motion } from "framer-motion";
 
-const DropdownMenu = ({ title, mainPath, items }) => {
+const Dropdown = ({ title, mainPath, items = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Keep dropdown open when hovering over menu or dropdown itself
-  const handleMouseEnter = () => setIsOpen(true);
-  const handleMouseLeave = (event) => {
-    if (!dropdownRef.current.contains(event.relatedTarget)) {
-      setIsOpen(false);
-    }
-  };
-
-  // **Dropdown Menu Animation (Staggered Effect)**
-  const dropdownVariants = {
-    open: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.6 }, // One by one effect
-    },
-    closed: { opacity: 0 },
-  };
-
-  // **Dropdown Item Animation (Left to Right)**
-  const itemVariants = {
-    open: { opacity: 1, x: 0, transition: { duration: 0.3 } }, // Move from left to right
-    closed: { opacity: 0, x: -20 }, // Start position off-screen to the left
-  };
+  // Close dropdown when clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <li
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <li 
+      className="relative group" 
+      ref={dropdownRef} 
+      onMouseEnter={() => setIsOpen(true)} 
+      onMouseLeave={() => setIsOpen(false)}
     >
-      {/* 🔹 Main Category (Click navigates, hover shows dropdown) */}
-      <NavLink
-        to={mainPath}
-        className="cursor-pointer hover:text-gray-500 transition block"
+      {/* Main Menu Link */}
+      <NavLink 
+        to={mainPath} 
+        className="cursor-pointer hover:text-gray-500 transition block pb-2" 
       >
         {title}
       </NavLink>
 
-      {/* 🔹 Dropdown Menu (Visible on Hover) */}
+      {/* Dropdown Menu */}
       <motion.ul
-        className="absolute left-0 mt-2 w-70 bg-white shadow-lg rounded-lg py-2 z-50"
-        ref={dropdownRef}
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        variants={dropdownVariants}
+        className={`absolute left-0 mt-0 w-60 bg-white shadow-lg rounded-b-lg text-sm  py-2 z-555 
+          ${isOpen ? "visible opacity-100" : "invisible opacity-0"} 
+        `}
+        initial={{ opacity: 0, y: -10 }}
+        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+        transition={{ duration: 0.3 }}
       >
-        {items.map((item, index) => (
-          <motion.li
-            key={index}
-            className="cursor-pointer"
-            variants={itemVariants}
-          >
-            <NavLink
-              to={item.path}
-              className="block px-4 py-2 text-gray-600 hover:bg-gray-100 transition whitespace-nowrap"
-            >
-              {item.name}
-            </NavLink>
-          </motion.li>
-        ))}
+        {items.length > 0 ? (
+          items.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.path}
+                className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-black transition"
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))
+        ) : (
+          <li className="px-4 py-2 text-gray-500">No items available</li>
+        )}
       </motion.ul>
     </li>
   );
 };
 
-export default DropdownMenu;
+export default Dropdown;

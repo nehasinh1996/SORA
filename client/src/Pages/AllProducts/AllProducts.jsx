@@ -50,14 +50,14 @@ const AllProduct = () => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="w-full p-5">
+    <div className="flex flex-col ">
+      <div className="w-full p-5 ">
         <h1 className="text-center text-5xl mt-12">All Categories</h1>
 
         <div
           className={`transition-all duration-300 ${
             isSticky
-              ? "sticky top-[108px] z-[999] h-15 bg-white px-5 py-2 "
+              ? "sticky top-[108px] z-[999] h-15 bg-white px-5 py-2 mt-10 "
               : "mt-4"
           } flex justify-end`}
         >
@@ -67,9 +67,9 @@ const AllProduct = () => {
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12 px-8 mt-6">
           {products.length > 0 ? (
             products.map((product) => (
-              <ProductCard 
-                key={product.id} 
-                product={product} 
+              <ProductCard
+                key={product.id}
+                product={product}
                 onAddToCart={() => addToCart(product)} // ✅ Zustand function directly call kiya
               />
             ))
