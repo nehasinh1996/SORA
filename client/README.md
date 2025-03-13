@@ -1,8 +1,5 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SORA is an online shopping platform for skincare, cosmetics, haircare, and personal hygiene products.
+ It offers a seamless shopping experience with an intuitive interface, secure checkout, and real-time order tracking. Users
+ can manage profiles, explore a vast product catalog, and enjoy a personalized shopping journey.
+ Businesses benefit from an admin panel for efficient product and order management, ensuring a smooth and engaging
+ e-commerce experience.
