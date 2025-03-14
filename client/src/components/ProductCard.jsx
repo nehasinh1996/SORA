@@ -20,11 +20,7 @@ const ProductCard = ({ product }) => {
           {/* Wishlist Heart Icon */}
           <button
             aria-label="Add to Wishlist"
-<<<<<<< HEAD
-            className="absolute top-2 right-2 p-1 rounded-full text-gray-400 hover:text-black hover:scale-110 transition duration-300"
-=======
             className="absolute top-3 right-3 bg-white p-1 rounded-full shadow-md text-gray-400 hover:text-red-500 hover:scale-110 transition duration-300"
->>>>>>> 55a1c431e3d4fc8f4fd50bc84b7f71996d78165a
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();

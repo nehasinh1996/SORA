@@ -1434,11 +1434,7 @@
     },
 
     {
-<<<<<<< HEAD
-      "category_name": "Others",
-=======
       "category_name": "Accessories",
->>>>>>> 55a1c431e3d4fc8f4fd50bc84b7f71996d78165a
       "subcategories": [
         {
           "subcategory_name": "Beauty Tools",

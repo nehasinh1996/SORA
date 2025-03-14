@@ -48,11 +48,7 @@ const Banner = () => {
         <img
           src={banner.image_url}
           alt={categoryName}
-<<<<<<< HEAD
-          className="w-full h-full object-fit"
-=======
           className="w-full h-full object-cover"
->>>>>>> 55a1c431e3d4fc8f4fd50bc84b7f71996d78165a
         />
       </div>
 

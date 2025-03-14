@@ -19,10 +19,6 @@ const App = () => {
           <Route path="/category/:categoryName/:subCategoryName" element={<ProductPage />} /> 
           <Route path="/category/:categoryName/:subCategoryName/product/:productName" element={<ProductPage />} />{/* ✅ Product by name */}
           <Route path="/product/:productId" element={<ProductDetail />} />
-<<<<<<< HEAD
-          <Route path="/product/:productId" element={<ProductDetail />} />
-=======
->>>>>>> 55a1c431e3d4fc8f4fd50bc84b7f71996d78165a
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

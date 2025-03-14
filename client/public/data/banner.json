@@ -2,11 +2,7 @@
   "banners": [
     {
       "category": "Skin Care",
-<<<<<<< HEAD
-      "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518799/3_bbfgmi.png",
-=======
       "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805816/elsa-olofsson-Pm0K9Y3EPUc-unsplash_ltv1op.jpg",
->>>>>>> 55a1c431e3d4fc8f4fd50bc84b7f71996d78165a
       "messages": [
         ["Glow Naturally, Shine Fearlessly!", "Pamper your skin with the care it deserves."],
         ["Glow Naturally, Radiate Confidence!", "Your skin deserves the best."],
