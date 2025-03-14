@@ -29,7 +29,7 @@ const ProductDetail = () => {
                     <img 
                         src={selectedProduct.image_url || "https://via.placeholder.com/300"} 
                         alt={selectedProduct.product_name || "No Image"} 
-                        className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg"
+                        className="w-full h-auto max-h-[500px] object-cover rounded-lg"
                     />
                 </div>
 
