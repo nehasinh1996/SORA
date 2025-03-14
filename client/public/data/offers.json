@@ -1,0 +1,12 @@
+{
+  "offers": [
+    { "message": "Glow Up Sale! Flat 40% Off on Skincare!", "sticker": "💖", "highlight": ["40%", "Skincare"] },
+    { "message": "Buy 1 Get 1 Free on Your Favorite SORA Products!", "sticker": "🎀", "highlight": ["Buy 1 Get 1", "SORA"] },
+    { "message": "Exclusive Deal: Extra 20% Off on All Orders Today!", "sticker": "🛍️", "highlight": ["20% Off"] },
+    { "message": "Flash Sale: Premium Beauty at 50% Off—Shop Now!", "sticker": "⚡", "highlight": ["50% Off", "Beauty"] },
+    { "message": "Limited Time: Get a 🎁 Free Surprise on Orders Above Rs.50!", "sticker": "🎊", "highlight": ["🎁 Free Surprise", "Rs.50"] },
+    { "message": "Last Chance! Special Discounts Ending Soon!", "sticker": "⏳" },
+    { "message": "Unlock Radiance: 30% Off on Bestselling Serums!", "sticker": "🌟", "highlight": ["30% Off", "Serums"] },
+    { "message": "Pamper Yourself! Free Shipping on All Orders!", "sticker": "🚚", "highlight": ["Free Shipping"] }
+  ]
+}
