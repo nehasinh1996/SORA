@@ -55,6 +55,7 @@ const ProductPage = () => {
   return (
     <>
       <Header/>
+      <Banner/>
       <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">
           <Link to={`/category/${categoryName}`} className="text-black hover:underline">

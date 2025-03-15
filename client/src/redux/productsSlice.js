@@ -31,14 +31,30 @@ export const fetchProductById = createAsyncThunk(
   }
 );
 
-
 const initialState = {
   categories: [],
   selectedCategory: null,
   selectedSubcategory: null,
   products: [],
   selectedProduct: null, // Added for single product details
+  sortBy: localStorage.getItem("sortBy") || "recommended", // Persist sort selection
   status: "idle",
+};
+
+const sortProducts = (products, sortBy) => {
+  switch (sortBy) {
+    case "low-high":
+      return [...products].sort((a, b) => a.price - b.price);
+    case "high-low":
+      return [...products].sort((a, b) => b.price - a.price);
+    case "new-arrival":
+      return [...products].sort((a, b) => new Date(b.date) - new Date(a.date));
+    case "best-selling":
+      return [...products].sort((a, b) => b.sold - a.sold);
+    case "recommended":
+    default:
+      return products;
+  }
 };
 
 const productsSlice = createSlice({
@@ -51,7 +67,7 @@ const productsSlice = createSlice({
         (cat) => cat.category_name === action.payload
       );
       state.products = category
-        ? category.subcategories.flatMap((sub) => sub.products)
+        ? sortProducts(category.subcategories.flatMap((sub) => sub.products), state.sortBy)
         : [];
     },
     setSubcategory: (state, action) => {
@@ -62,7 +78,12 @@ const productsSlice = createSlice({
       const subcategory = category?.subcategories.find(
         (sub) => sub.subcategory_name === action.payload
       );
-      state.products = subcategory ? subcategory.products : [];
+      state.products = subcategory ? sortProducts(subcategory.products, state.sortBy) : [];
+    },
+    setSortBy: (state, action) => {
+      state.sortBy = action.payload;
+      localStorage.setItem("sortBy", action.payload);
+      state.products = sortProducts(state.products, state.sortBy);
     },
   },
   extraReducers: (builder) => {
@@ -91,5 +112,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setCategory, setSubcategory } = productsSlice.actions;
+export const { setCategory, setSubcategory, setSortBy } = productsSlice.actions;
 export default productsSlice.reducer;
