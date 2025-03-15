@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../redux/productsSlice";
+import Header from "../../components/Header";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -22,6 +23,8 @@ const ProductDetail = () => {
     if (!selectedProduct) return <p>Product not found.</p>;
 
     return (
+        <>
+        <Header/>
         <div className="max-w-5xl mx-auto p-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* Product Image */}
@@ -84,6 +87,7 @@ const ProductDetail = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

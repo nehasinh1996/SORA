@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories, setCategory, setSubcategory } from "../../redux/productsSlice";
 import Banner from "../../components/Banner";
 import ProductCard from "../../components/ProductCard"; // Import ProductCard component
+import Header from "../../components/Header";
 
 const ProductPage = () => {
   const { categoryName, subCategoryName, productName } = useParams();
@@ -53,7 +54,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Banner />
+      <Header/>
       <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">
           <Link to={`/category/${categoryName}`} className="text-black hover:underline">
