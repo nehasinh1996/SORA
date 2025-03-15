@@ -1,0 +1,13 @@
+@import "tailwindcss";
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }body, main {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carousel-container {
+    margin-top: 0 !important;
+  }
+ 

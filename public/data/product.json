@@ -1,0 +1,1497 @@
+{
+  "categories": [
+    {
+      "category_name": "Lip Care",
+      "subcategories": [
+        {
+          "subcategory_name": "Lip Balm",
+          "products": [
+            {
+              "id": 1,
+              "product_name": "Hydrating Lip Balm",
+              "price": 199,
+              "sales": 250,
+              "date_added": "2024-03-10",
+              "concerns": ["Dry Lips"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Shea Butter", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518798/4_yfrlep.png"
+            },
+            {
+              "id": 2,
+              "product_name": "SPF Lip Balm",
+              "price": 299,
+              "sales": 180,
+              "date_added": "2024-03-12",
+              "concerns": ["Sun Protection"],
+              "treatment_type": ["SPF Protection"],
+              "ingredients": ["Coconut Oil", "Beeswax"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805811/mockup-free-P_eFCw52DFE-unsplash_eu1sf7.jpg"
+            },
+            {
+              "id": 3,
+              "product_name": "Tinted Lip Balm",
+              "price": 249,
+              "sales": 220,
+              "date_added": "2024-03-14",
+              "concerns": ["Dry Lips", "Lip Color"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Shea Butter", "Beeswax"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518795/lip3_d6ncox.png"
+            },
+            {
+              "id": 4,
+              "product_name": "Cooling Lip Balm",
+              "price": 229,
+              "sales": 160,
+              "date_added": "2024-03-16",
+              "concerns": ["Dry Lips", "Lip Freshness"],
+              "treatment_type": ["Soothing"],
+              "ingredients": ["Peppermint Oil", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518795/lip7_alxcdx.png"
+            },
+            {
+              "id": 5,
+              "product_name": "Repair Lip Balm",
+              "price": 299,
+              "sales": 150,
+              "date_added": "2024-03-18",
+              "concerns": ["Chapped Lips", "Dry Lips"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Cocoa Butter", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip2_waamjd.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Lip Scrub",
+          "products": [
+            {
+              "id": 6,
+              "product_name": "Sugar Lip Scrub",
+              "price": 249,
+              "sales": 160,
+              "date_added": "2024-03-15",
+              "concerns": ["Chapped Lips"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Brown Sugar", "Jojoba Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip4_kyz0yx.png"
+            },
+            {
+              "id": 7,
+              "product_name": "Mint Lip Scrub",
+              "price": 219,
+              "sales": 140,
+              "date_added": "2024-03-17",
+              "concerns": ["Chapped Lips"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Sugar", "Peppermint Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip1_imnwme.png"
+            },
+            {
+              "id": 8,
+              "product_name": "Rose Lip Scrub",
+              "price": 229,
+              "sales": 120,
+              "date_added": "2024-03-19",
+              "concerns": ["Chapped Lips"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Rose Petals", "Sugar"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/hair5_aa2fpq.png"
+            },
+            {
+              "id": 9,
+              "product_name": "Citrus Lip Scrub",
+              "price": 239,
+              "sales": 130,
+              "date_added": "2024-03-20",
+              "concerns": ["Chapped Lips"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Orange Peel", "Sugar"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/p2_jbp8n0.png"
+            },
+            {
+              "id": 10,
+              "product_name": "Berry Lip Scrub",
+              "price": 259,
+              "sales": 110,
+              "date_added": "2024-03-21",
+              "concerns": ["Chapped Lips"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Strawberry Extract", "Sugar"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/l12_uayvzc.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Lip Mask",
+          "products": [
+            {
+              "id": 11,
+              "product_name": "Overnight Lip Mask",
+              "price": 399,
+              "sales": 100,
+              "date_added": "2024-03-18",
+              "concerns": ["Deep Hydration"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Hyaluronic Acid", "Vitamin C"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445886/p3_rpzvnh.png"
+            },
+            {
+              "id": 12,
+              "product_name": "Hydrating Lip Mask",
+              "price": 379,
+              "sales": 110,
+              "date_added": "2024-03-19",
+              "concerns": ["Dry Lips", "Deep Hydration"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Hyaluronic Acid", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445884/l11_kzqgai.png"
+            },
+            {
+              "id": 13,
+              "product_name": "Cooling Lip Mask",
+              "price": 389,
+              "sales": 90,
+              "date_added": "2024-03-20",
+              "concerns": ["Dry Lips", "Lip Freshness"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Peppermint Oil", "Hyaluronic Acid"],
+              "image_url": "hhttps://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip1_imnwme.png"
+            },
+            {
+              "id": 14,
+              "product_name": "Anti-Aging Lip Mask",
+              "price": 429,
+              "sales": 80,
+              "date_added": "2024-03-21",
+              "concerns": ["Wrinkles"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Retinol", "Vitamin C"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445883/l3_h3dlyf.png"
+            },
+            {
+              "id": 15,
+              "product_name": "Berry Lip Mask",
+              "price": 349,
+              "sales": 70,
+              "date_added": "2024-03-22",
+              "concerns": ["Dry Lips"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Berry Extract", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445883/l5_zatns9.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Lip Oil",
+          "products": [
+            {
+              "id": 16,
+              "product_name": "Nourishing Lip Oil",
+              "price": 349,
+              "sales": 90,
+              "date_added": "2024-03-20",
+              "concerns": ["Soft Lips"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Argan Oil", "Jojoba Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445884/l11_kzqgai.png"
+            },
+            {
+              "id": 17,
+              "product_name": "Repair Lip Oil",
+              "price": 369,
+              "sales": 80,
+              "date_added": "2024-03-22",
+              "concerns": ["Dry Lips"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Coconut Oil", "Argan Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445884/l11_kzqgai.png"
+            },
+            {
+              "id": 18,
+              "product_name": "Hydrating Lip Oil",
+              "price": 359,
+              "sales": 70,
+              "date_added": "2024-03-23",
+              "concerns": ["Dry Lips"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Hyaluronic Acid", "Jojoba Oil"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/hydrating_lip_oil.png"
+            },
+            {
+              "id": 19,
+              "product_name": "Refreshing Lip Oil",
+              "price": 379,
+              "sales": 60,
+              "date_added": "2024-03-24",
+              "concerns": ["Soft Lips"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Peppermint Oil", "Coconut Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445884/l7_jjesch.png"
+            },
+            {
+              "id": 20,
+              "product_name": "Plumping Lip Oil",
+              "price": 399,
+              "sales": 50,
+              "date_added": "2024-03-25",
+              "concerns": ["Thin Lips"],
+              "treatment_type": ["Plumping"],
+              "ingredients": ["Peppermint Oil", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445884/l11_kzqgai.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Lip Serum",
+          "products": [
+            {
+              "id": 21,
+              "product_name": "Plumping Lip Serum",
+              "price": 499,
+              "sales": 120,
+              "date_added": "2024-03-22",
+              "concerns": ["Thin Lips"],
+              "treatment_type": ["Plumping"],
+              "ingredients": ["Peptides", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/Lipcare_banner_jjzepk.png"
+            },
+            {
+              "id": 22,
+              "product_name": "Firming Lip Serum",
+              "price": 459,
+              "sales": 110,
+              "date_added": "2024-03-23",
+              "concerns": ["Wrinkles"],
+              "treatment_type": ["Firming"],
+              "ingredients": ["Collagen", "Vitamin C"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/firming_lip_serum.png"
+            },
+            {
+              "id": 23,
+              "product_name": "Hydrating Lip Serum",
+              "price": 449,
+              "sales": 100,
+              "date_added": "2024-03-24",
+              "concerns": ["Dry Lips"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Hyaluronic Acid", "Glycerin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805811/mockup-free-P_eFCw52DFE-unsplash_eu1sf7.jpg"
+            },
+            {
+              "id": 24,
+              "product_name": "Soothing Lip Serum",
+              "price": 429,
+              "sales": 90,
+              "date_added": "2024-03-25",
+              "concerns": ["Irritated Lips"],
+              "treatment_type": ["Soothing"],
+              "ingredients": ["Aloe Vera", "Chamomile"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518798/4_yfrlep.png"
+            },
+            {
+              "id": 25,
+              "product_name": "Anti-Aging Lip Serum",
+              "price": 479,
+              "sales": 80,
+              "date_added": "2024-03-26",
+              "concerns": ["Wrinkles"],
+              "treatment_type": ["Anti-Aging"],
+              "ingredients": ["Retinol", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518795/lip3_d6ncox.png"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "category_name": "Hygiene",
+      "subcategories": [
+        {
+          "subcategory_name": "Hand Wash",
+          "products": [
+            {
+              "id": 26,
+              "product_name": "Moisturizing Hand Wash",
+              "price": 199,
+              "sales": 300,
+              "date_added": "2024-03-10",
+              "concerns": ["Dry Hands"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Aloe Vera", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741807319/kelly-sikkema-iHYs3h94MNE-unsplash_lrpnis.jpg"
+            },
+            {
+              "id": 27,
+              "product_name": "Antibacterial Hand Wash",
+              "price": 249,
+              "sales": 250,
+              "date_added": "2024-03-12",
+              "concerns": ["Germs"],
+              "treatment_type": ["Antibacterial"],
+              "ingredients": ["Tea Tree Oil", "Glycerin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741807318/bodega-ECECfpiHR3U-unsplash_y4dcjz.jpg"
+            },
+            {
+              "id": 28,
+              "product_name": "Lavender Hand Wash",
+              "price": 229,
+              "sales": 220,
+              "date_added": "2024-03-14",
+              "concerns": ["Dry Hands", "Stress Relief"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Lavender Extract", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741806950/everdrop-gmbh-JHpAm3IQg5Q-unsplash_pv6hoz.jpg"
+            },
+            {
+              "id": 29,
+              "product_name": "Citrus Hand Wash",
+              "price": 219,
+              "sales": 180,
+              "date_added": "2024-03-16",
+              "concerns": ["Oily Hands"],
+              "treatment_type": ["Cleansing"],
+              "ingredients": ["Citrus Extract", "Vitamin C"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805816/elsa-olofsson-Pm0K9Y3EPUc-unsplash_ltv1op.jpg"
+            },
+            {
+              "id": 30,
+              "product_name": "Rose Hand Wash",
+              "price": 259,
+              "sales": 150,
+              "date_added": "2024-03-18",
+              "concerns": ["Dry Hands", "Fragrance"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Rose Extract", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805821/sincerely-media-LtGwgq7r_mc-unsplash_plyf2e.jpg"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Toothpaste",
+          "products": [
+            {
+              "id": 31,
+              "product_name": "Whitening Toothpaste",
+              "price": 179,
+              "sales": 300,
+              "date_added": "2024-03-10",
+              "concerns": ["Teeth Stains"],
+              "treatment_type": ["Whitening"],
+              "ingredients": ["Baking Soda", "Hydrated Silica"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805814/sanju-pandita-FCepQ_YfY44-unsplash_ihgd9k.jpg"
+            },
+            {
+              "id": 32,
+              "product_name": "Sensitive Toothpaste",
+              "price": 199,
+              "sales": 280,
+              "date_added": "2024-03-12",
+              "concerns": ["Sensitive Teeth"],
+              "treatment_type": ["Soothing"],
+              "ingredients": ["Potassium Nitrate", "Fluoride"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/toothpaste_2.png"
+            },
+            {
+              "id": 33,
+              "product_name": "Herbal Toothpaste",
+              "price": 229,
+              "sales": 250,
+              "date_added": "2024-03-14",
+              "concerns": ["Natural Ingredients"],
+              "treatment_type": ["Cleansing"],
+              "ingredients": ["Neem Extract", "Clove"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805815/birgith-roosipuu-GdsFTnarsog-unsplash_ov6y2l.jpg"
+            },
+            {
+              "id": 34,
+              "product_name": "Charcoal Toothpaste",
+              "price": 249,
+              "sales": 220,
+              "date_added": "2024-03-16",
+              "concerns": ["Teeth Stains"],
+              "treatment_type": ["Whitening"],
+              "ingredients": ["Activated Charcoal", "Coconut Oil"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/toothpaste_4.png"
+            },
+            {
+              "id": 35,
+              "product_name": "Cavity Protection Toothpaste",
+              "price": 179,
+              "sales": 210,
+              "date_added": "2024-03-18",
+              "concerns": ["Cavities"],
+              "treatment_type": ["Protection"],
+              "ingredients": ["Fluoride", "Calcium Carbonate"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/toothpaste_5.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Shampoo",
+          "products": [
+            {
+              "id": 36,
+              "product_name": "Moisturizing Shampoo",
+              "price": 299,
+              "sales": 350,
+              "date_added": "2024-03-10",
+              "concerns": ["Dry Hair"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Coconut Oil", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445879/hr4_s1a1r2.png"
+            },
+            {
+              "id": 37,
+              "product_name": "Anti-Dandruff Shampoo",
+              "price": 259,
+              "sales": 300,
+              "date_added": "2024-03-12",
+              "concerns": ["Dandruff"],
+              "treatment_type": ["Anti-Dandruff"],
+              "ingredients": ["Zinc Pyrithione", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445880/hy7_ywsugn.png"
+            },
+            {
+              "id": 38,
+              "product_name": "Volumizing Shampoo",
+              "price": 269,
+              "sales": 280,
+              "date_added": "2024-03-14",
+              "concerns": ["Flat Hair"],
+              "treatment_type": ["Volumizing"],
+              "ingredients": ["Collagen", "Rice Protein"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445878/Haircare_logo_qwlpzo.png"
+            },
+            {
+              "id": 39,
+              "product_name": "Shine Boost Shampoo",
+              "price": 289,
+              "sales": 250,
+              "date_added": "2024-03-16",
+              "concerns": ["Dull Hair"],
+              "treatment_type": ["Shine Boosting"],
+              "ingredients": ["Argan Oil", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/hr12_iuwplz.png"
+            },
+            {
+              "id": 40,
+              "product_name": "Strengthening Shampoo",
+              "price": 299,
+              "sales": 240,
+              "date_added": "2024-03-18",
+              "concerns": ["Weak Hair"],
+              "treatment_type": ["Strengthening"],
+              "ingredients": ["Keratin", "Biotin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/hr11_suykg7.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Body Wash",
+          "products": [
+            {
+              "id": 41,
+              "product_name": "Citrus Body Wash",
+              "price": 199,
+              "sales": 320,
+              "date_added": "2024-03-10",
+              "concerns": ["Oily Skin"],
+              "treatment_type": ["Cleansing"],
+              "ingredients": ["Lemon Extract", "Vitamin C"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445874/hr6_pwbbg4.png"
+            },
+            {
+              "id": 42,
+              "product_name": "Lavender Body Wash",
+              "price": 249,
+              "sales": 290,
+              "date_added": "2024-03-12",
+              "concerns": ["Stress Relief"],
+              "treatment_type": ["Relaxing"],
+              "ingredients": ["Lavender Extract", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445874/about1_gvldhp.png"
+            },
+            {
+              "id": 43,
+              "product_name": "Hydrating Body Wash",
+              "price": 269,
+              "sales": 260,
+              "date_added": "2024-03-14",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Coconut Oil", "Shea Butter"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/body_wash_3.png"
+            },
+            {
+              "id": 44,
+              "product_name": "Charcoal Body Wash",
+              "price": 279,
+              "sales": 240,
+              "date_added": "2024-03-16",
+              "concerns": ["Oily Skin"],
+              "treatment_type": ["Detoxifying"],
+              "ingredients": ["Activated Charcoal", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445873/hr5_ki0s6y.png"
+            },
+            {
+              "id": 45,
+              "product_name": "Rose Body Wash",
+              "price": 229,
+              "sales": 230,
+              "date_added": "2024-03-18",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Rose Extract", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/hr8_q6ydeo.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Deodorant",
+          "products": [
+            {
+              "id": 46,
+              "product_name": "Roll-on Deodorant",
+              "price": 149,
+              "sales": 350,
+              "date_added": "2024-03-10",
+              "concerns": ["Body Odor"],
+              "treatment_type": ["Odor Protection"],
+              "ingredients": ["Aluminum Chloride", "Glycerin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445879/hy1_tlj4ds.png"
+            },
+            {
+              "id": 47,
+              "product_name": "Spray Deodorant",
+              "price": 169,
+              "sales": 300,
+              "date_added": "2024-03-12",
+              "concerns": ["Body Odor"],
+              "treatment_type": ["Odor Protection"],
+              "ingredients": ["Alcohol", "Fragrance"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445879/hy3_ibh8qw.png"
+            },
+            {
+              "id": 48,
+              "product_name": "Natural Deodorant",
+              "price": 199,
+              "sales": 270,
+              "date_added": "2024-03-14",
+              "concerns": ["Body Odor"],
+              "treatment_type": ["Odor Protection"],
+              "ingredients": ["Baking Soda", "Coconut Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445881/hy11_ogg9ol.png"
+            },
+            {
+              "id": 49,
+              "product_name": "Aluminum-Free Deodorant",
+              "price": 179,
+              "sales": 240,
+              "date_added": "2024-03-16",
+              "concerns": ["Body Odor"],
+              "treatment_type": ["Odor Protection"],
+              "ingredients": ["Arrowroot Powder", "Coconut Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445880/hy9_ebsfi8.png"
+            },
+            {
+              "id": 50,
+              "product_name": "Crystal Deodorant",
+              "price": 209,
+              "sales": 220,
+              "date_added": "2024-03-18",
+              "concerns": ["Body Odor"],
+              "treatment_type": ["Odor Protection"],
+              "ingredients": ["Potassium Alum", "Glycerin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445883/l4_rwd9oq.png"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "category_name": "Skin Care",
+      "subcategories": [
+        {
+          "subcategory_name": "Face Wash",
+          "products": [
+            {
+              "id": 51,
+              "product_name": "Gentle Foaming Cleanser",
+              "price": 349,
+              "sales": 300,
+              "date_added": "2024-03-05",
+              "concerns": ["Oily Skin"],
+              "treatment_type": ["Deep Cleansing"],
+              "ingredients": ["Salicylic Acid", "Green Tea"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s14_oquvqr.png"
+            },
+            {
+              "id": 52,
+              "product_name": "Soothing Gel Cleanser",
+              "price": 299,
+              "sales": 250,
+              "date_added": "2024-03-07",
+              "concerns": ["Sensitive Skin"],
+              "treatment_type": ["Gentle Cleansing"],
+              "ingredients": ["Aloe Vera", "Cucumber Extract"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445908/s16_r9tz6x.png"
+            },
+            {
+              "id": 53,
+              "product_name": "Clarifying Face Wash",
+              "price": 329,
+              "sales": 270,
+              "date_added": "2024-03-10",
+              "concerns": ["Acne Prone Skin"],
+              "treatment_type": ["Clarifying"],
+              "ingredients": ["Salicylic Acid", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/sk4_kwsirr.png"
+            },
+            {
+              "id": 54,
+              "product_name": "Hydrating Face Wash",
+              "price": 359,
+              "sales": 220,
+              "date_added": "2024-03-12",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Hydrating"],
+              "ingredients": ["Hyaluronic Acid", "Chamomile Extract"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/sk3_slw6lh.png"
+            },
+            {
+              "id": 55,
+              "product_name": "Exfoliating Face Wash",
+              "price": 379,
+              "sales": 190,
+              "date_added": "2024-03-14",
+              "concerns": ["Uneven Skin Tone"],
+              "treatment_type": ["Exfoliating"],
+              "ingredients": ["Bamboo Charcoal", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518795/sk2_gkvgzg.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Moisturizer",
+          "products": [
+            {
+              "id": 56,
+              "product_name": "Hydrating Face Cream",
+              "price": 499,
+              "sales": 200,
+              "date_added": "2024-03-08",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Aloe Vera", "Shea Butter"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s10_uacq5x.png"
+            },
+            {
+              "id": 57,
+              "product_name": "Night Repair Moisturizer",
+              "price": 599,
+              "sales": 180,
+              "date_added": "2024-03-10",
+              "concerns": ["Wrinkles"],
+              "treatment_type": ["Repairing"],
+              "ingredients": ["Retinol", "Peptides"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445900/s4_pvpc7y.png"
+            },
+            {
+              "id": 58,
+              "product_name": "Oil-Free Moisturizer",
+              "price": 399,
+              "sales": 220,
+              "date_added": "2024-03-12",
+              "concerns": ["Oily Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Niacinamide", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s11_hzk4il.png"
+            },
+            {
+              "id": 59,
+              "product_name": "Brightening Moisturizer",
+              "price": 449,
+              "sales": 190,
+              "date_added": "2024-03-14",
+              "concerns": ["Dull Skin"],
+              "treatment_type": ["Brightening"],
+              "ingredients": ["Vitamin C", "Licorice Extract"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s12_ockknw.png"
+            },
+            {
+              "id": 60,
+              "product_name": "Sunscreen Moisturizer SPF 30",
+              "price": 349,
+              "sales": 210,
+              "date_added": "2024-03-16",
+              "concerns": ["Sun Protection"],
+              "treatment_type": ["Moisturizing", "SPF Protection"],
+              "ingredients": ["Zinc Oxide", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445898/p8_qluntm.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Sunscreen",
+          "products": [
+            {
+              "id": 61,
+              "product_name": "SPF 50+ Sunblock",
+              "price": 599,
+              "sales": 180,
+              "date_added": "2024-03-12",
+              "concerns": ["Sun Damage"],
+              "treatment_type": ["UV Protection"],
+              "ingredients": ["Zinc Oxide", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445900/s4_pvpc7y.png"
+            },
+            {
+              "id": 62,
+              "product_name": "SPF 30 Sunscreen Lotion",
+              "price": 499,
+              "sales": 210,
+              "date_added": "2024-03-14",
+              "concerns": ["Sun Protection"],
+              "treatment_type": ["UV Protection"],
+              "ingredients": ["Titanium Dioxide", "Vitamin C"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s8_saabk2.png"
+            },
+            {
+              "id": 63,
+              "product_name": "Waterproof SPF 50 Sunscreen",
+              "price": 699,
+              "sales": 170,
+              "date_added": "2024-03-16",
+              "concerns": ["Sun Protection", "Sweat Resistance"],
+              "treatment_type": ["UV Protection"],
+              "ingredients": ["Zinc Oxide", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445900/s4_pvpc7y.png"
+            },
+            {
+              "id": 64,
+              "product_name": "SPF 40 Tinted Sunscreen",
+              "price": 649,
+              "sales": 160,
+              "date_added": "2024-03-18",
+              "concerns": ["Sun Protection", "Even Skin Tone"],
+              "treatment_type": ["UV Protection"],
+              "ingredients": ["Zinc Oxide", "Titanium Dioxide"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/sunscreen_4.png"
+            },
+            {
+              "id": 65,
+              "product_name": "Hydrating Sunscreen SPF 50",
+              "price": 699,
+              "sales": 150,
+              "date_added": "2024-03-20",
+              "concerns": ["Sun Damage", "Dry Skin"],
+              "treatment_type": ["UV Protection", "Hydrating"],
+              "ingredients": ["Hyaluronic Acid", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/sunscreen_5.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Serum",
+          "products": [
+            {
+              "id": 66,
+              "product_name": "Vitamin C Brightening Serum",
+              "price": 799,
+              "sales": 250,
+              "date_added": "2024-03-18",
+              "concerns": ["Dull Skin"],
+              "treatment_type": ["Brightening"],
+              "ingredients": ["Vitamin C", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s7_ffgwqz.png"
+            },
+            {
+              "id": 67,
+              "product_name": "Hyaluronic Acid Serum",
+              "price": 899,
+              "sales": 220,
+              "date_added": "2024-03-20",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Hydrating"],
+              "ingredients": ["Hyaluronic Acid", "Vitamin B5"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s6_si45to.png"
+            },
+            {
+              "id": 68,
+              "product_name": "Retinol Anti-Aging Serum",
+              "price": 999,
+              "sales": 180,
+              "date_added": "2024-03-22",
+              "concerns": ["Wrinkles"],
+              "treatment_type": ["Anti-Aging"],
+              "ingredients": ["Retinol", "Peptides"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445900/s5_e0cihs.png"
+            },
+            {
+              "id": 69,
+              "product_name": "Niacinamide Serum",
+              "price": 799,
+              "sales": 200,
+              "date_added": "2024-03-24",
+              "concerns": ["Uneven Skin Tone"],
+              "treatment_type": ["Brightening"],
+              "ingredients": ["Niacinamide", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445899/p7_pn8bic.png"
+            },
+            {
+              "id": 70,
+              "product_name": "Blemish Control Serum",
+              "price": 749,
+              "sales": 210,
+              "date_added": "2024-03-26",
+              "concerns": ["Acne Prone Skin"],
+              "treatment_type": ["Clarifying"],
+              "ingredients": ["Salicylic Acid", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445898/p6_ivlfkf.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Face Mask",
+          "products": [
+            {
+              "id": 71,
+              "product_name": "Clay Detox Mask",
+              "price": 449,
+              "sales": 150,
+              "date_added": "2024-03-22",
+              "concerns": ["Acne Prone Skin"],
+              "treatment_type": ["Deep Cleansing"],
+              "ingredients": ["Kaolin Clay", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445886/p4_mefy2s.png"
+            },
+            {
+              "id": 72,
+              "product_name": "Hydrating Sheet Mask",
+              "price": 399,
+              "sales": 170,
+              "date_added": "2024-03-24",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Hydrating"],
+              "ingredients": ["Aloe Vera", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445898/p5_vwh2sf.png"
+            },
+            {
+              "id": 73,
+              "product_name": "Brightening Clay Mask",
+              "price": 479,
+              "sales": 160,
+              "date_added": "2024-03-26",
+              "concerns": ["Dull Skin"],
+              "treatment_type": ["Brightening"],
+              "ingredients": ["Vitamin C", "Kaolin Clay"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445886/p3_rpzvnh.png"
+            },
+            {
+              "id": 74,
+              "product_name": "Purifying Mud Mask",
+              "price": 499,
+              "sales": 150,
+              "date_added": "2024-03-28",
+              "concerns": ["Oil Control"],
+              "treatment_type": ["Purifying"],
+              "ingredients": ["Charcoal", "Green Tea"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445879/hy4_mqpk2o.png"
+            },
+            {
+              "id": 75,
+              "product_name": "Anti-Aging Face Mask",
+              "price": 559,
+              "sales": 140,
+              "date_added": "2024-03-30",
+              "concerns": ["Wrinkles"],
+              "treatment_type": ["Anti-Aging"],
+              "ingredients": ["Retinol", "Collagen"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445880/hy5_fljctx.png"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "category_name": "Hair Care",
+      "subcategories": [
+        {
+          "subcategory_name": "Shampoo",
+          "products": [
+            {
+              "id": 76,
+              "product_name": "Anti-Dandruff Shampoo",
+              "price": 499,
+              "sales": 250,
+              "date_added": "2024-03-08",
+              "concerns": ["Dandruff & Scalp Issues"],
+              "treatment_type": ["Dandruff Control"],
+              "ingredients": ["Tea Tree Oil", "Keratin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s6_si45to.png"
+            },
+            {
+              "id": 77,
+              "product_name": "Herbal Anti-Hairfall Shampoo",
+              "price": 499,
+              "sales": 140,
+              "date_added": "2024-04-07",
+              "concerns": ["Hair Fall & Thinning"],
+              "treatment_type": ["Hair Fall Control"],
+              "ingredients": ["Onion Extract", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445879/hr2_dttq7t.png"
+            },
+            {
+              "id": 78,
+              "product_name": "Clarifying Shampoo",
+              "price": 399,
+              "sales": 210,
+              "date_added": "2024-03-10",
+              "concerns": ["Product Buildup"],
+              "treatment_type": ["Deep Cleansing"],
+              "ingredients": ["Charcoal", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445879/hr4_s1a1r2.png"
+            },
+            {
+              "id": 79,
+              "product_name": "Moisturizing Shampoo",
+              "price": 549,
+              "sales": 180,
+              "date_added": "2024-03-15",
+              "concerns": ["Dry Hair"],
+              "treatment_type": ["Hydrating"],
+              "ingredients": ["Coconut Oil", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741807318/bodega-ECECfpiHR3U-unsplash_y4dcjz.jpg"
+            },
+            {
+              "id": 80,
+              "product_name": "Sulfate-Free Shampoo",
+              "price": 499,
+              "sales": 220,
+              "date_added": "2024-03-18",
+              "concerns": ["Sensitive Scalp"],
+              "treatment_type": ["Gentle Cleansing"],
+              "ingredients": ["Aloe Vera", "Chamomile"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805816/elsa-olofsson-Pm0K9Y3EPUc-unsplash_ltv1op.jpg"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Hair Oil",
+          "products": [
+            {
+              "id": 81,
+              "product_name": "Hair Growth Oil",
+              "price": 599,
+              "sales": 300,
+              "date_added": "2024-03-12",
+              "concerns": ["Hair Fall & Thinning"],
+              "treatment_type": ["Hair Growth & Strengthening"],
+              "ingredients": ["Argan Oil", "Biotin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518797/hair2_qtia0w.png"
+            },
+            {
+              "id": 82,
+              "product_name": "Ayurvedic Hair Tonic",
+              "price": 699,
+              "sales": 120,
+              "date_added": "2024-04-05",
+              "concerns": ["Hair Fall & Thinning"],
+              "treatment_type": ["Hair Growth & Strengthening"],
+              "ingredients": ["Hibiscus Extract"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518797/2_dzpi3o.png"
+            },
+            {
+              "id": 83,
+              "product_name": "Nourishing Hair Oil",
+              "price": 449,
+              "sales": 250,
+              "date_added": "2024-03-14",
+              "concerns": ["Dry Hair"],
+              "treatment_type": ["Nourishment"],
+              "ingredients": ["Olive Oil", "Jojoba Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/sk1_d3wycj.png"
+            },
+            {
+              "id": 84,
+              "product_name": "Rejuvenating Hair Oil",
+              "price": 599,
+              "sales": 190,
+              "date_added": "2024-03-20",
+              "concerns": ["Damaged Hair"],
+              "treatment_type": ["Repair & Strengthening"],
+              "ingredients": ["Argan Oil", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/hair5_aa2fpq.png"
+            },
+            {
+              "id": 85,
+              "product_name": "Herbal Anti-Hairfall Oil",
+              "price": 499,
+              "sales": 150,
+              "date_added": "2024-03-22",
+              "concerns": ["Hair Fall"],
+              "treatment_type": ["Hair Fall Control"],
+              "ingredients": ["Onion Extract", "Garlic"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805815/kadarius-seegars-Mxy5gokl8mE-unsplash_vzb5im.jpg"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Conditioner",
+          "products": [
+            {
+              "id": 86,
+              "product_name": "Deep Conditioning Hair Mask",
+              "price": 799,
+              "sales": 220,
+              "date_added": "2024-03-16",
+              "concerns": ["Dry & Frizzy Hair"],
+              "treatment_type": ["Deep Conditioning"],
+              "ingredients": ["Keratin", "Onion Extract"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741807319/kelly-sikkema-iHYs3h94MNE-unsplash_lrpnis.jpg"
+            },
+            {
+              "id": 87,
+              "product_name": "Anti-Frizz Leave-In Conditioner",
+              "price": 599,
+              "sales": 160,
+              "date_added": "2024-04-03",
+              "concerns": ["Dry & Frizzy Hair"],
+              "treatment_type": ["Leave-In Conditioning"],
+              "ingredients": ["Shea Butter"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805813/globencer-OlRckR3Cfxo-unsplash_lyqwmy.jpg"
+            },
+            {
+              "id": 88,
+              "product_name": "Hydrating Conditioner",
+              "price": 549,
+              "sales": 210,
+              "date_added": "2024-03-18",
+              "concerns": ["Dry Hair"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Coconut Oil", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445882/Haircare_banner_bksuek.png"
+            },
+            {
+              "id": 89,
+              "product_name": "Color Protect Conditioner",
+              "price": 599,
+              "sales": 180,
+              "date_added": "2024-03-25",
+              "concerns": ["Colored Hair"],
+              "treatment_type": ["Color Protection"],
+              "ingredients": ["Argan Oil", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445878/Haircare_logo_qwlpzo.png"
+            },
+            {
+              "id": 90,
+              "product_name": "Strengthening Conditioner",
+              "price": 649,
+              "sales": 170,
+              "date_added": "2024-03-28",
+              "concerns": ["Weak Hair"],
+              "treatment_type": ["Strengthening"],
+              "ingredients": ["Biotin", "Collagen"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/hr12_iuwplz.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Hair Styling",
+          "products": [
+            {
+              "id": 91,
+              "product_name": "Volumizing Hair Mousse",
+              "price": 429,
+              "sales": 170,
+              "date_added": "2024-04-01",
+              "concerns": ["Thin Hair"],
+              "treatment_type": ["Hair Styling"],
+              "ingredients": ["Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/hr8_q6ydeo.png"
+            },
+            {
+              "id": 92,
+              "product_name": "Heat Protection Hair Spray",
+              "price": 350,
+              "sales": 140,
+              "date_added": "2024-03-27",
+              "concerns": ["Heat Damage"],
+              "treatment_type": ["Heat & Pollution Protection"],
+              "ingredients": ["Keratin", "Biotin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445876/hr9_eayxys.png"
+            },
+            {
+              "id": 93,
+              "product_name": "Hair Styling Gel",
+              "price": 299,
+              "sales": 160,
+              "date_added": "2024-03-15",
+              "concerns": ["Hair Styling"],
+              "treatment_type": ["Styling"],
+              "ingredients": ["Glycerin"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445876/bgimg4_zccw12.png"
+            },
+            {
+              "id": 94,
+              "product_name": "Texturizing Sea Salt Spray",
+              "price": 379,
+              "sales": 180,
+              "date_added": "2024-03-22",
+              "concerns": ["Volume & Texture"],
+              "treatment_type": ["Texturizing"],
+              "ingredients": ["Sea Salt", "Coconut Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445874/hr7_lptgnd.png"
+            },
+            {
+              "id": 95,
+              "product_name": "Shine Hair Serum",
+              "price": 599,
+              "sales": 150,
+              "date_added": "2024-03-30",
+              "concerns": ["Dull Hair"],
+              "treatment_type": ["Shine Enhancer"],
+              "ingredients": ["Argan Oil", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805813/mathilde-langevin-FDRaYqiTY1k-unsplash_jnngin.jpg"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "category_name": "Personal Care",
+      "subcategories": [
+        {
+          "subcategory_name": "Body Wash",
+          "products": [
+            {
+              "id": 96,
+              "product_name": "Refreshing Body Wash",
+              "price": 599,
+              "sales": 320,
+              "date_added": "2024-03-08",
+              "concerns": ["Body Odor & Dryness"],
+              "treatment_type": ["Daily Cleansing"],
+              "ingredients": ["Aloe Vera", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445880/hy7_ywsugn.png"
+            },
+            {
+              "id": 97,
+              "product_name": "Whitening & Detox Charcoal Soap",
+              "price": 299,
+              "sales": 400,
+              "date_added": "2024-03-12",
+              "concerns": ["Impurities & Dirt"],
+              "treatment_type": ["Deep Cleansing"],
+              "ingredients": ["Activated Charcoal", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805811/tony-litvyak-zYJbeqTp0fU-unsplash_zofeje.jpg"
+            },
+            {
+              "id": 98,
+              "product_name": "Moisturizing Body Lotion",
+              "price": 499,
+              "sales": 280,
+              "date_added": "2024-03-16",
+              "concerns": ["Dry & Rough Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Shea Butter", "Coconut Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445909/s13_d3jegs.png"
+            },
+            {
+              "id": 99,
+              "product_name": "Herbal Deodorant Roll-On",
+              "price": 399,
+              "sales": 500,
+              "date_added": "2024-03-20",
+              "concerns": ["Body Odor"],
+              "treatment_type": ["Odor Protection"],
+              "ingredients": ["Aloe Vera", "Essential Oils"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445882/hy12_msdvvj.png"
+            },
+            {
+              "id": 100,
+              "product_name": "Exfoliating Body Scrub",
+              "price": 450,
+              "sales": 240,
+              "date_added": "2024-03-24",
+              "concerns": ["Dead Skin & Roughness"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Coffee Extract", "Walnut Scrub"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805816/elsa-olofsson-Pm0K9Y3EPUc-unsplash_ltv1op.jpg"
+            },
+            {
+              "id": 101,
+              "product_name": "SPF 50 Body Sunscreen",
+              "price": 599,
+              "sales": 320,
+              "date_added": "2024-03-27",
+              "concerns": ["Sun Damage"],
+              "treatment_type": ["UV Protection"],
+              "ingredients": ["Zinc Oxide", "Vitamin E"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s1_lwsnxk.png"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Intimate Care",
+          "products": [
+            {
+              "id": 102,
+              "product_name": "Intimate Hygiene Wash",
+              "price": 349,
+              "sales": 190,
+              "date_added": "2024-04-01",
+              "concerns": ["Hygiene & Freshness"],
+              "treatment_type": ["Intimate Hygiene"],
+              "ingredients": ["Aloe Vera", "Tea Tree Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s9_w3hmjs.png"
+            },
+            {
+              "id": 103,
+              "product_name": "Nourishing Hand & Foot Cream",
+              "price": 450,
+              "sales": 160,
+              "date_added": "2024-04-03",
+              "concerns": ["Dry & Cracked Skin"],
+              "treatment_type": ["Hand & Foot Care"],
+              "ingredients": ["Shea Butter", "Lavender Oil"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s12_ockknw.png"
+            },
+            {
+              "id": 104,
+              "product_name": "Hydrating Sheet Mask Pack",
+              "price": 299,
+              "sales": 350,
+              "date_added": "2024-04-05",
+              "concerns": ["Dull & Dry Skin"],
+              "treatment_type": ["Hydration & Glow"],
+              "ingredients": ["Hyaluronic Acid", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445908/s15_urrm7r.png"
+            },
+            {
+              "id": 105,
+              "product_name": "Body Butter for Soft Skin",
+              "price": 599,
+              "sales": 280,
+              "date_added": "2024-03-30",
+              "concerns": ["Dry Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Cocoa Butter", "Shea Butter"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s10_uacq5x.png"
+            },
+            {
+              "id": 106,
+              "product_name": "Soothing Foot Cream",
+              "price": 399,
+              "sales": 230,
+              "date_added": "2024-04-08",
+              "concerns": ["Cracked Heels & Dry Feet"],
+              "treatment_type": ["Foot Care"],
+              "ingredients": ["Peppermint", "Menthol"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445899/p7_pn8bic.png"
+            },
+            {
+              "id": 107,
+              "product_name": "Intimate Whitening Cream",
+              "price": 499,
+              "sales": 160,
+              "date_added": "2024-04-10",
+              "concerns": ["Intimate Skin Brightening"],
+              "treatment_type": ["Whitening"],
+              "ingredients": ["Vitamin C", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445898/p8_qluntm.png"
+            }
+          ]
+        },
+
+        {
+          "subcategory_name": "Oral Care",
+          "products": [
+            {
+              "id": 113,
+              "product_name": "Whitening Toothpaste",
+              "price": 299,
+              "sales": 350,
+              "date_added": "2024-03-15",
+              "concerns": ["Teeth Stains"],
+              "treatment_type": ["Whitening"],
+              "ingredients": ["Fluoride", "Baking Soda"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805814/sanju-pandita-FCepQ_YfY44-unsplash_ihgd9k.jpg"
+            },
+            {
+              "id": 114,
+              "product_name": "Toothbrush with Soft Bristles",
+              "price": 149,
+              "sales": 270,
+              "date_added": "2024-03-18",
+              "concerns": ["Sensitive Gums"],
+              "treatment_type": ["Oral Hygiene"],
+              "ingredients": ["Plastic", "Nylon"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805815/birgith-roosipuu-GdsFTnarsog-unsplash_ov6y2l.jpg"
+            },
+            {
+              "id": 115,
+              "product_name": "Mouthwash for Fresh Breath",
+              "price": 349,
+              "sales": 220,
+              "date_added": "2024-03-20",
+              "concerns": ["Bad Breath"],
+              "treatment_type": ["Breath Freshener"],
+              "ingredients": ["Menthol", "Fluoride"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518799/3_bbfgmi.png"
+            },
+            {
+              "id": 116,
+              "product_name": "Dental Floss for Gum Health",
+              "price": 149,
+              "sales": 290,
+              "date_added": "2024-03-25",
+              "concerns": ["Gum Health"],
+              "treatment_type": ["Oral Hygiene"],
+              "ingredients": ["Nylon"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805813/sanju-pandita-o02HCH7g4Tg-unsplash_ki8glk.jpg"
+            },
+            {
+              "id": 117,
+              "product_name": "Teeth Whitening Kit",
+              "price": 799,
+              "sales": 150,
+              "date_added": "2024-03-28",
+              "concerns": ["Teeth Stains"],
+              "treatment_type": ["Whitening"],
+              "ingredients": ["Hydrogen Peroxide", "Baking Soda"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805814/sanju-pandita-FCepQ_YfY44-unsplash_ihgd9k.jpg"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Foot Care",
+          "products": [
+            {
+              "id": 118,
+              "product_name": "Foot Scrub for Smooth Skin",
+              "price": 349,
+              "sales": 220,
+              "date_added": "2024-03-12",
+              "concerns": ["Cracked Heels & Dry Feet"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Sea Salt", "Lemon Extract"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445900/return_p5kmjp.png"
+            },
+            {
+              "id": 119,
+              "product_name": "Foot Cream for Soft Skin",
+              "price": 299,
+              "sales": 250,
+              "date_added": "2024-03-16",
+              "concerns": ["Dry & Cracked Skin"],
+              "treatment_type": ["Moisturizing"],
+              "ingredients": ["Menthol", "Shea Butter"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s11_hzk4il.png"
+            },
+            {
+              "id": 120,
+              "product_name": "Callus Remover for Feet",
+              "price": 349,
+              "sales": 200,
+              "date_added": "2024-03-19",
+              "concerns": ["Hard Skin & Calluses"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Plastic", "Stainless Steel"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/hair_pw6ca5.png"
+            },
+            {
+              "id": 201,
+              "product_name": "Foot Spa Kit",
+              "price": 499,
+              "sales": 180,
+              "date_added": "2024-03-23",
+              "concerns": ["Sore & Tired Feet"],
+              "treatment_type": ["Relaxation"],
+              "ingredients": ["Lavender Oil", "Epsom Salt"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518797/1_fwstqs.png"
+            },
+            {
+              "id": 202,
+              "product_name": "Cooling Foot Gel",
+              "price": 349,
+              "sales": 210,
+              "date_added": "2024-03-29",
+              "concerns": ["Tired Feet"],
+              "treatment_type": ["Relaxation"],
+              "ingredients": ["Menthol", "Aloe Vera"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518798/4_yfrlep.png"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "category_name": "Accessories",
+      "subcategories": [
+        {
+          "subcategory_name": "Beauty Tools",
+          "products": [
+            {
+              "id": 203,
+              "product_name": "Facial Roller",
+              "price": 599,
+              "sales": 120,
+              "date_added": "2024-03-15",
+              "concerns": ["Relaxation", "Skin Firming"],
+              "treatment_type": ["Massaging"],
+              "ingredients": ["Rose Quartz"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518797/skinn_ttdw7c.png"
+            },
+            {
+              "id": 204,
+              "product_name": "Electric Face Cleaner",
+              "price": 999,
+              "sales": 75,
+              "date_added": "2024-03-18",
+              "concerns": ["Deep Cleaning"],
+              "treatment_type": ["Exfoliation"],
+              "ingredients": ["Silicone"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805811/tony-litvyak-zYJbeqTp0fU-unsplash_zofeje.jpg"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Makeup Brushes",
+          "products": [
+            {
+              "id": 205,
+              "product_name": "Professional Makeup Brush Set",
+              "price": 1299,
+              "sales": 200,
+              "date_added": "2024-03-12",
+              "concerns": ["Smooth Makeup Application"],
+              "treatment_type": ["Blending"],
+              "ingredients": ["Synthetic Fibers"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805812/sara-groblechner-7TgbRVEYdYY-unsplash_fecyrd.jpg"
+            }
+          ]
+        },
+        {
+          "subcategory_name": "Extra Subcategory 3",
+          "products": []
+        },
+        {
+          "subcategory_name": "Extra Subcategory 4",
+          "products": []
+        },
+        {
+          "subcategory_name": "Extra Subcategory 5",
+          "products": []
+        }
+      ]
+    }
+  ]
+}

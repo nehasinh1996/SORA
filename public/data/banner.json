@@ -1,0 +1,59 @@
+{
+  "banners": [
+    {
+      "category": "Skin Care",
+      "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805816/elsa-olofsson-Pm0K9Y3EPUc-unsplash_ltv1op.jpg",
+      "messages": [
+        ["Glow Naturally, Shine Fearlessly!", "Pamper your skin with the care it deserves."],
+        ["Glow Naturally, Radiate Confidence!", "Your skin deserves the best."],
+        ["Hydrate. Nourish. Glow!", "Elevate your skincare routine with the finest."],
+        ["Love Your Skin, Love Yourself!", "Pampering made simple and effective."],
+        ["Glow Up, Naturally!", "Because your skin deserves the best care."]
+      ]
+    },
+    {
+      "category": "Hygiene",
+      "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445881/hygiene_cw4ewc.png",
+      "messages": [
+        ["Feel Fresh, Stay Confident!", "Gentle yet effective hygiene solutions designed just for you."],
+        ["Stay Fresh, Feel Confident!", "Hygiene essentials designed just for you."],
+        ["Gentle, Safe & Effective!", "Because your intimate care matters."],
+        ["Freshness that Empowers!", "Feel clean, stay carefree all day."],
+        ["Clean, Confident, Carefree!", "Feel fresh, feel fabulous."]
+      ]
+    },
+    {
+      "category": "Lip Care",
+      "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/Lipcare_banner_jjzepk.png",
+      "messages": [
+        ["Soft, Luscious Lips Every Day!", "Because your smile deserves extra care."],
+        ["Soft, Hydrated, Beautiful!", "Hydration that lasts all day."],
+        ["Kiss Dryness Goodbye!", "Moisture-rich lip care for all-day softness."],
+        ["Lips that Speak Confidence!", "Because your smile deserves extra care."],
+        ["Smooth Lips, Stunning Smiles!", "Hydration that lasts all day."]
+      ]
+    },
+    {
+      "category": "Personal Care",
+      "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518797/2_dzpi3o.png",
+      "messages": [
+        ["Self-Care is Self-Love!", "Tailored personal care solutions to make you feel your best!"],
+        ["Self-Care, Every Day!", "Feel fresh, feel empowered."],
+        ["Because You Deserve the Best!", "Personal care tailored for you."],
+        ["Confidence Starts with Care!", "Elevate your routine, embrace self-love."],
+        ["Feel Good, Look Good!", "Self-care that empowers every woman."]
+      ]
+    },
+    {
+      "category": "Hair Care",
+      "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445882/Haircare_banner_bksuek.png",
+      "messages": [
+        ["Nourish Your Locks, Elevate Your Confidence!", "Because healthy, gorgeous hair is every woman's crown!"],
+        ["Healthy Hair, Happy You!", "Pamper your locks with the love they deserve."],
+        ["Nourish, Strengthen, Shine!", "Because great hair starts with great care."],
+        ["Hair Love, Naturally!", "Give your hair the best with nature-inspired care."],
+        ["Stronger Strands, Beautiful You!", "Because every day is a great hair day."]
+      ]
+    }
+  ]
+}
