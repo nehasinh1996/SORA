@@ -36,10 +36,16 @@ const ProductPage = () => {
     dispatch(setFilters(filters));
   }, [filters, dispatch]);
 
+  // ✅ Decode and normalize product name from URL
+  const decodedProductName = decodeURIComponent(productName || "")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+
   // ✅ Apply filters to products
   const filteredProducts = products.filter((product) => {
     const matchesConcerns =
-      filters.concerns.length === 0 || filters.concerns.some((concern) => product.concerns.includes(concern));
+      filters.concerns.length === 0 ||
+      filters.concerns.some((concern) => product.concerns.includes(concern));
 
     const matchesTreatmentType =
       filters.treatment_type.length === 0 ||
@@ -52,11 +58,11 @@ const ProductPage = () => {
     return matchesConcerns && matchesTreatmentType && matchesIngredients;
   });
 
+  // ✅ Match and display the correct product
   const displayedProducts = productName
     ? filteredProducts.filter(
         (p) =>
-          p.product_name.toLowerCase().replace(/\s+/g, "-") ===
-          productName.toLowerCase().replace(/\s+/g, "-")
+          p.product_name.toLowerCase().replace(/\s+/g, "-") === decodedProductName
       )
     : sortProducts(filteredProducts, sortBy);
 
@@ -79,7 +85,9 @@ const ProductPage = () => {
           <Link
             to={`/category/${categoryName}`}
             className={`$${
-              subCategoryName || productName ? "text-gray-500 hover:underline" : "text-black font-bold"
+              subCategoryName || productName
+                ? "text-gray-500 hover:underline"
+                : "text-black font-bold"
             }`}
           >
             {categoryName}
@@ -103,7 +111,7 @@ const ProductPage = () => {
               <span className="text-black font-bold">
                 {products.find(
                   (p) =>
-                    p.product_name.toLowerCase().replace(/\s+/g, "-") === productName
+                    p.product_name.toLowerCase().replace(/\s+/g, "-") === decodedProductName
                 )?.product_name || productName.replace(/-/g, " ")}
               </span>
             </>

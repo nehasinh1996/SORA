@@ -70,7 +70,7 @@ const SearchBar = () => {
   const handleSuggestionClick = (product) => {
     setQuery(product.name);
     setFilteredSuggestions([]);
-    navigate(`/products/${product.name.replace(/\s+/g, "-").toLowerCase()}`);
+    navigate(`/products/${encodeURIComponent(product.name.replace(/\s+/g, "-").toLowerCase())}`);
   };
 
   const handleSearch = () => {
@@ -80,7 +80,7 @@ const SearchBar = () => {
     );
 
     if (matchedProduct) {
-      navigate(`/products/${query.replace(/\s+/g, "-").toLowerCase()}`);
+      navigate(`/products/${encodeURIComponent(query.replace(/\s+/g, "-").toLowerCase())}`);
     } else {
       alert("No products found!");
     }

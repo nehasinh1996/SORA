@@ -78,7 +78,7 @@ const App = () => {
           <Route path="/otp-verification" element={<OtpVerification />} />
 
           {/* ✅ Catch all 404 page */}
-          <Route path="*" element={<NotFound />} />
+         <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Provider>
