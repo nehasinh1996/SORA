@@ -1,17 +1,22 @@
-import React from "react";
+
 import Header from "./components/Header";
 import CarouselComponent from "./components/CarouselComponent";
 import Collections from "./components/Collections"; // ✅ Import Collections
+import TestimonialCarousel from "./components/TestimonialCarousel";
+import BannerAnimate from "./components/BannerAnimate";
 
 const Home = () => {
   return (
     <>
       <Header />
       <CarouselComponent />
-      <h1 className="text-center text-5xl mt-8">Our Collections</h1>
+      
+      <div className="mt-30">
       <Collections /> {/* ✅ Display Collections Below Carousel */}
-      <div className="mt-12">
-      <img src="https://res.cloudinary.com/df86jjkhb/image/upload/v1741445882/imgg_liutlg.jpg" alt="Banner" className="w-full"/>
+      <BannerAnimate/>
+      </div>
+      <div className="mt-30">
+        <TestimonialCarousel/>
       </div>
 
     </>

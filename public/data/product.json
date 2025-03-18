@@ -157,7 +157,7 @@
               "concerns": ["Dry Lips", "Lip Freshness"],
               "treatment_type": ["Repairing"],
               "ingredients": ["Peppermint Oil", "Hyaluronic Acid"],
-              "image_url": "hhttps://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip1_imnwme.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip1_imnwme.png"
             },
             {
               "id": 14,
@@ -217,7 +217,7 @@
               "concerns": ["Dry Lips"],
               "treatment_type": ["Hydration"],
               "ingredients": ["Hyaluronic Acid", "Jojoba Oil"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/hydrating_lip_oil.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445900/s5_e0cihs.png"
             },
             {
               "id": 19,
@@ -266,7 +266,7 @@
               "concerns": ["Wrinkles"],
               "treatment_type": ["Firming"],
               "ingredients": ["Collagen", "Vitamin C"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/firming_lip_serum.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/sk3_slw6lh.png"
             },
             {
               "id": 23,
@@ -392,7 +392,7 @@
               "concerns": ["Sensitive Teeth"],
               "treatment_type": ["Soothing"],
               "ingredients": ["Potassium Nitrate", "Fluoride"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/toothpaste_2.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805813/sanju-pandita-o02HCH7g4Tg-unsplash_ki8glk.jpg"
             },
             {
               "id": 33,
@@ -414,7 +414,7 @@
               "concerns": ["Teeth Stains"],
               "treatment_type": ["Whitening"],
               "ingredients": ["Activated Charcoal", "Coconut Oil"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/toothpaste_4.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805814/sanju-pandita-FCepQ_YfY44-unsplash_ihgd9k.jpg"
             },
             {
               "id": 35,
@@ -425,7 +425,7 @@
               "concerns": ["Cavities"],
               "treatment_type": ["Protection"],
               "ingredients": ["Fluoride", "Calcium Carbonate"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/toothpaste_5.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445908/s16_r9tz6x.png"
             }
           ]
         },
@@ -523,7 +523,7 @@
               "concerns": ["Dry Skin"],
               "treatment_type": ["Moisturizing"],
               "ingredients": ["Coconut Oil", "Shea Butter"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/body_wash_3.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s14_oquvqr.png"
             },
             {
               "id": 44,
@@ -780,7 +780,7 @@
               "concerns": ["Sun Protection", "Even Skin Tone"],
               "treatment_type": ["UV Protection"],
               "ingredients": ["Zinc Oxide", "Titanium Dioxide"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/sunscreen_4.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s12_ockknw.png"
             },
             {
               "id": 65,
@@ -791,7 +791,7 @@
               "concerns": ["Sun Damage", "Dry Skin"],
               "treatment_type": ["UV Protection", "Hydrating"],
               "ingredients": ["Hyaluronic Acid", "Vitamin E"],
-              "image_url": "https://res.cloudinary.com/demo/image/upload/v1680000000/sunscreen_5.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445901/s1_lwsnxk.png"
             }
           ]
         },

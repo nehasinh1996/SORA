@@ -33,28 +33,11 @@ export const fetchProductById = createAsyncThunk(
 
 const initialState = {
   categories: [],
-  selectedCategory: null,
-  selectedSubcategory: null,
+  selectedCategory: localStorage.getItem("selectedCategory") || null,
+  selectedSubcategory: localStorage.getItem("selectedSubcategory") || null,
   products: [],
   selectedProduct: null, // Added for single product details
-  sortBy: localStorage.getItem("sortBy") || "recommended", // Persist sort selection
   status: "idle",
-};
-
-const sortProducts = (products, sortBy) => {
-  switch (sortBy) {
-    case "low-high":
-      return [...products].sort((a, b) => a.price - b.price);
-    case "high-low":
-      return [...products].sort((a, b) => b.price - a.price);
-    case "new-arrival":
-      return [...products].sort((a, b) => new Date(b.date) - new Date(a.date));
-    case "best-selling":
-      return [...products].sort((a, b) => b.sold - a.sold);
-    case "recommended":
-    default:
-      return products;
-  }
 };
 
 const productsSlice = createSlice({
@@ -63,27 +46,26 @@ const productsSlice = createSlice({
   reducers: {
     setCategory: (state, action) => {
       state.selectedCategory = action.payload;
+      localStorage.setItem("selectedCategory", action.payload);
+      state.selectedSubcategory = null;
+      localStorage.removeItem("selectedSubcategory");
       const category = state.categories.find(
         (cat) => cat.category_name === action.payload
       );
       state.products = category
-        ? sortProducts(category.subcategories.flatMap((sub) => sub.products), state.sortBy)
+        ? category.subcategories.flatMap((sub) => sub.products)
         : [];
     },
     setSubcategory: (state, action) => {
       state.selectedSubcategory = action.payload;
+      localStorage.setItem("selectedSubcategory", action.payload);
       const category = state.categories.find(
         (cat) => cat.category_name === state.selectedCategory
       );
       const subcategory = category?.subcategories.find(
         (sub) => sub.subcategory_name === action.payload
       );
-      state.products = subcategory ? sortProducts(subcategory.products, state.sortBy) : [];
-    },
-    setSortBy: (state, action) => {
-      state.sortBy = action.payload;
-      localStorage.setItem("sortBy", action.payload);
-      state.products = sortProducts(state.products, state.sortBy);
+      state.products = subcategory ? subcategory.products : [];
     },
   },
   extraReducers: (builder) => {
@@ -94,6 +76,25 @@ const productsSlice = createSlice({
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.categories = action.payload;
+
+        if (state.selectedCategory) {
+          const category = state.categories.find(
+            (cat) => cat.category_name === state.selectedCategory
+          );
+          state.products = category
+            ? category.subcategories.flatMap((sub) => sub.products)
+            : [];
+        }
+
+        if (state.selectedSubcategory) {
+          const category = state.categories.find(
+            (cat) => cat.category_name === state.selectedCategory
+          );
+          const subcategory = category?.subcategories.find(
+            (sub) => sub.subcategory_name === state.selectedSubcategory
+          );
+          state.products = subcategory ? subcategory.products : [];
+        }
       })
       .addCase(fetchCategories.rejected, (state) => {
         state.status = "failed";
@@ -103,7 +104,7 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProductById.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.selectedProduct = action.payload; // Store fetched product
+        state.selectedProduct = action.payload;
       })
       .addCase(fetchProductById.rejected, (state) => {
         state.status = "failed";
@@ -112,5 +113,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setCategory, setSubcategory, setSortBy } = productsSlice.actions;
+export const { setCategory, setSubcategory } = productsSlice.actions;
 export default productsSlice.reducer;

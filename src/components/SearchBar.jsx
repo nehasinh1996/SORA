@@ -70,12 +70,20 @@ const SearchBar = () => {
   const handleSuggestionClick = (product) => {
     setQuery(product.name);
     setFilteredSuggestions([]);
-    navigate(`/products?query=${product.name}`);
+    navigate(`/products/${product.name.replace(/\s+/g, "-").toLowerCase()}`);
   };
 
   const handleSearch = () => {
     if (!query.trim()) return;
-    navigate(`/products?query=${query}`);
+    const matchedProduct = suggestions.find(
+      (p) => p.name.toLowerCase().replace(/\s+/g, "-") === query.toLowerCase().replace(/\s+/g, "-")
+    );
+
+    if (matchedProduct) {
+      navigate(`/products/${query.replace(/\s+/g, "-").toLowerCase()}`);
+    } else {
+      alert("No products found!");
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -95,7 +103,11 @@ const SearchBar = () => {
   return (
     <div className="relative w-64 mx-auto mt-2 z-50" ref={searchRef}>
       <div className="flex items-center border border-gray-300 rounded-full bg-white shadow-sm h-8">
-        <FaSearch className="text-gray-500 ml-2 cursor-pointer" size={14} onMouseDown={handleSearch} />
+        <FaSearch
+          className="text-gray-500 ml-2 cursor-pointer"
+          size={14}
+          onMouseDown={handleSearch}
+        />
         <input
           type="text"
           className="w-full px-3 py-1 text-sm outline-none text-gray-800 bg-transparent"
@@ -107,7 +119,10 @@ const SearchBar = () => {
         {query && <IoClose className="text-gray-500 cursor-pointer mr-2" size={16} onClick={() => setQuery("")} />}
       </div>
       {filteredSuggestions.length > 0 && (
-        <ul ref={dropdownRef} className="absolute left-0 w-full bg-white border border-gray-300 shadow-lg rounded-lg mt-1 max-h-48 overflow-y-auto z-50">
+        <ul
+          ref={dropdownRef}
+          className="absolute left-0 w-full bg-white border border-gray-300 shadow-lg rounded-lg mt-1 max-h-48 overflow-y-auto z-50"
+        >
           {filteredSuggestions.map((product, index) => (
             <li
               key={product.id}

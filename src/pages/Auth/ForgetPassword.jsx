@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -28,14 +28,15 @@ const ForgetPassword = () => {
         setError(res.data.message || "Something went wrong.");
       }
     } catch (err) {
-      setError("Failed to send reset link. Try again.");
+      console.error("Error:", err);
+      setError(err.response?.data?.message || "Failed to send reset link. Try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#ffffff]">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-[50%] md:flex">
         {/* Left Side - Image */}
         <div className="hidden md:block md:w-1/2 bg-cover bg-center">
@@ -54,7 +55,7 @@ const ForgetPassword = () => {
             <div>
               <input
                 type="email"
-                className="w-full p-3 border border-[#0a0a0a51] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3b3b3b7c]"
+                className="w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -64,7 +65,7 @@ const ForgetPassword = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#000000] text-white p-3 rounded-lg hover:bg-[#000000db]"
+              className="w-full bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition disabled:opacity-50"
               disabled={loading}
             >
               {loading ? "Sending..." : "Submit"}
@@ -72,9 +73,7 @@ const ForgetPassword = () => {
           </form>
 
           <div className="text-center mt-4 text-gray-600 text-sm">
-            <button onClick={() => navigate("/login")} className="hover:underline">
-              Cancel
-            </button>
+            <button onClick={() => navigate("/login")} className="hover:underline">Cancel</button>
           </div>
         </div>
       </div>

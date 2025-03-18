@@ -1,11 +1,6 @@
-import React, { useOptimistic } from "react";
 import Header from "./components/Header";
 
 const AboutUs = () => {
-  const [optimisticState, setOptimisticState] = useOptimistic(
-    { hovered: false },
-    (state, newState) => ({ ...state, ...newState })
-  );
 
   return (
     <>
@@ -55,13 +50,10 @@ const AboutUs = () => {
           <p className="text-lg text-black max-w-2xl mx-auto mb-8 leading-relaxed font-light">
             Be part of our beauty revolution! Stay updated with the latest trends, exclusive offers, and expert skincare tips.
           </p>
-          <button
-            className={`bg-black text-white px-8 py-4 rounded-xl text-lg font-medium transition transform shadow-lg hover:scale-110`}
-            onMouseEnter={() => setOptimisticState({ hovered: true })}
-            onMouseLeave={() => setOptimisticState({ hovered: false })}
-          >
+          <button className="bg-black text-white px-8 py-4 rounded-xl text-lg font-medium transition transform shadow-lg hover:scale-110">
             Learn More
           </button>
+
         </div>
       </div>
     </div>

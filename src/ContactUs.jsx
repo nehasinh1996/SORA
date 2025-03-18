@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaChevronDown, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import Map from "./components/Map";
@@ -52,7 +52,7 @@ const ContactUs = () => {
 
         {/* Second Div - FAQ */}
         <div className="flex flex-col justify-center bg-gray-700 p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4 text-white">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Frequently Asked Questions</h2>
           <div className="space-y-3">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white p-1 rounded-md">

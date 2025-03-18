@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Banner = () => {
@@ -42,7 +42,8 @@ const Banner = () => {
   if (!banner) return null; // No banner found, don't render
 
   return (
-    <div className="relative w-full h-[400px] flex items-center bg-gray-200 overflow-hidden">
+    <div className="relative w-full h-[400px] flex items-center bg-gray-200 overflow-hidden mt-[40px]">
+
       {/* Left: Banner Image */}
       <div className="w-1/2 h-full">
         <img
@@ -53,22 +54,21 @@ const Banner = () => {
       </div>
 
       {/* Right: Rotating Messages with Fade Effect */}
-      <div className="w-1/2 h-full bg-green-50 flex flex-col justify-center items-center text-center p-6">
-        <style jsx>{`
-          .fade {
-            transition: opacity 1s ease-in-out;
-            opacity: ${fade ? "1" : "0"};
-          }
-        `}</style>
-        <div key={currentMessageIndex} className="fade">
-          <h2 className="text-4xl font-serif text-green-950">
-            {banner.messages[currentMessageIndex][0]}
-          </h2>
-          <p className="text-2xl text-gray-600 mt-2 font-extralight">
-            {banner.messages[currentMessageIndex][1]}
-          </p>
-        </div>
-      </div>
+      {/* Right: Rotating Messages with Fade Effect */}
+<div className="w-1/2 h-full bg-green-50 flex flex-col justify-center items-center text-center p-6">
+  <div
+    key={currentMessageIndex}
+    className={`transition-opacity duration-1000 ${fade ? "opacity-100" : "opacity-0"}`}
+  >
+    <h2 className="text-4xl font-serif text-green-950">
+      {banner.messages[currentMessageIndex][0]}
+    </h2>
+    <p className="text-2xl text-gray-600 mt-2 font-extralight">
+      {banner.messages[currentMessageIndex][1]}
+    </p>
+  </div>
+</div>
+
     </div>
   );
 };
