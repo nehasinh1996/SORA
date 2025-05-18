@@ -1,48 +1,27 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// ✅ Initial State
-const initialState = {
-  searchQuery: "",
-  searchResults: [],
-  loading: false,
-  error: null,
-};
-
-// ✅ Fetch Search Results
+// Async action to fetch search results
 export const fetchSearchResults = createAsyncThunk(
   "search/fetchResults",
-  async (query, { rejectWithValue }) => {
-    try {
-      const response = await fetch("/data/product.json");
-      const data = await response.json();
-
-      // Flatten and filter products based on query
-      const matchedProducts = data.categories.flatMap((category) =>
-        category.subcategories.flatMap((sub) =>
-          sub.products.filter((product) =>
-            product.product_name.toLowerCase().includes(query.toLowerCase())
-          )
-        )
-      );
-
-      return matchedProducts;
-    } catch (error) {
-      console.error("Search fetch error:", error);
-      return rejectWithValue("Error fetching search results.");
-    }
-    
+  async (query) => {
+    const response = await fetch(`/api/search?query=${query}`);
+    const data = await response.json();
+    return data;
   }
 );
 
-// ✅ Search Slice
 const searchSlice = createSlice({
   name: "search",
-  initialState,
+  initialState: {
+    searchQuery: "",
+    searchResults: [],
+    isLoading: false,
+  },
   reducers: {
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
     },
-    clearSearch: (state) => {
+    clearSearchQuery: (state) => {
       state.searchQuery = "";
       state.searchResults = [];
     },
@@ -50,22 +29,18 @@ const searchSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSearchResults.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.isLoading = true;
       })
       .addCase(fetchSearchResults.fulfilled, (state, action) => {
-        state.loading = false;
         state.searchResults = action.payload;
+        state.isLoading = false;
       })
-      .addCase(fetchSearchResults.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+      .addCase(fetchSearchResults.rejected, (state) => {
+        state.isLoading = false;
       });
   },
 });
 
-// ✅ Export actions
-export const { setSearchQuery, clearSearch } = searchSlice.actions;
+export const { setSearchQuery, clearSearchQuery } = searchSlice.actions;
 
-// ✅ Export reducer
 export default searchSlice.reducer;

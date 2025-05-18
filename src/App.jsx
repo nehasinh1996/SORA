@@ -6,6 +6,7 @@ import store from "./redux/store";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import NotFound from "./NotFound";
+import SearchBar from "./components/SearchBar"; // Make sure SearchBar is imported
 
 // Public Pages
 import Home from "./Home";
@@ -42,44 +43,47 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Routes>
-          {/* ✅ Public Routes (With Layout) */}
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/category/:categoryName" element={<Layout><ProductPage /></Layout>} />
-          <Route path="/category/:categoryName/:subCategoryName" element={<Layout><ProductPage /></Layout>} />
-          <Route path="/category/:categoryName/:subCategoryName/product/:productName" element={<Layout><ProductPage /></Layout>} />
-          <Route path="/product/:productId" element={<Layout><ProductDetail /></Layout>} />
-          <Route path="/products/:productName" element={<Layout><ProductPage /></Layout>} />
-          <Route path="/about-us" element={<Layout><AboutUs /></Layout>} />
-          <Route path="/contact-us" element={<Layout><ContactUs /></Layout>} />
-          
-          {/* ✅ Public Routes for Viewing Wishlist & Cart */}
-          <Route path="/wishlist" element={<Layout><WishlistPage /></Layout>} />
-          <Route path="/cart" element={<Layout><Cart /></Layout>} />
-          
-          {/* ✅ Protected Routes (Only for Logged-in Users) */}
-          <Route path="/profile" element={<ProtectedRoute><Layout><Profile /></Layout></ProtectedRoute>} />
-          <Route path="/orders" element={<ProtectedRoute><Layout><Orders /></Layout></ProtectedRoute>} />
-          <Route path="/orders/:orderId" element={<ProtectedRoute><Layout><OrderDetail /></Layout></ProtectedRoute>} />
-          <Route path="/checkout" element={<ProtectedRoute><Layout><Checkout /></Layout></ProtectedRoute>} />
-          <Route path="/place-order" element={<ProtectedRoute><Layout><PlaceOrder /></Layout></ProtectedRoute>} />
-          <Route path="/order-success" element={<ProtectedRoute><Layout><OrderSuccess /></Layout></ProtectedRoute>} />
+        <Layout>
+          {/* Search bar included globally */}
+          <SearchBar />
 
-          {/* ✅ Policy Pages (Public, No Layout) */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route path="/return-and-cancellation-policy" element={<ReturnAndCancellationPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/category/:categoryName" element={<ProductPage />} />
+            <Route path="/category/:categoryName/:subCategoryName" element={<ProductPage />} />
+            <Route path="/category/:categoryName/:subCategoryName/product/:productName" element={<ProductPage />} />
+            <Route path="/products/:productName" element={<ProductPage />} />
+            <Route path="/product/:productId" element={<ProductDetail />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/cart" element={<Cart />} />
 
-          {/* ❌ Auth Pages (Public, No Layout) */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgot-password" element={<ForgetPassword />} />
-          <Route path="/otp-verification" element={<OtpVerification />} />
+            {/* Protected Routes */}
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
+            <Route path="/orders/:orderId" element={<ProtectedRoute><OrderDetail /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+            <Route path="/place-order" element={<ProtectedRoute><PlaceOrder /></ProtectedRoute>} />
+            <Route path="/order-success" element={<ProtectedRoute><OrderSuccess /></ProtectedRoute>} />
 
-          {/* ✅ Catch all 404 page */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            {/* Policy Pages */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/return-and-cancellation-policy" element={<ReturnAndCancellationPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+
+            {/* Auth Pages */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="forgetPassword" element={<ForgetPassword />} />
+            <Route path="/otp-verification" element={<OtpVerification />} />
+
+            {/* 404 Page */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </Provider>
   );

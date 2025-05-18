@@ -1,29 +1,29 @@
 {
       "collections": [
         {
-          "title": "Skin Care",
-          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742038323/head-shoulders-portrait-smiling-mixedrace-260nw-1397007497_hhqusw.png",
-          "route": "/collection/skincare"
+          "title": "Radiant Skin Rituals",
+          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742038323/head-shoulders-portrait-smiling-mixedrace-260nw-1397007497_hhqusw.png"
+       
         },
         {
-          "title": "Hygiene",
-          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742059636/young-woman-brushing-her-teeth-260nw-2311716389_isuwq7_m1kw9q.png",
-          "route": "/collection/hygiene"
+          "title": "Feminine Hygiene Essentials",
+          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742059636/young-woman-brushing-her-teeth-260nw-2311716389_isuwq7_m1kw9q.png"
+      
         },
         {
-          "title": "Personal Care",
-          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742041438/PROD__Best_Vanilla_Perfumes_For_Women_1__1727198456074_nwloly.jpg",
-          "route": "/collection/personal-care"
+          "title": "Pampering Self-Care",
+          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742041438/PROD__Best_Vanilla_Perfumes_For_Women_1__1727198456074_nwloly.jpg"
+         
         },
         {
-          "title": "Hair Care",
-          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742037588/woman-doing-herself-scalp-massage_23-2151228506_aqd3xp.avif",
-          "route": "/collection/hair-care"
+          "title": "Elegant Hair Transformations",
+          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742037588/woman-doing-herself-scalp-massage_23-2151228506_aqd3xp.avif"
+        
         },
         {
-          "title": "Lip Care",
-          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742041839/image1_0be31e54-b37f-40b0-b2db-fc62a86098d8_hcg9jk.webp",
-          "route": "/collection/lip-care"
+          "title": "Bold & Beautiful Lips",
+          "image": "https://res.cloudinary.com/df86jjkhb/image/upload/v1742041839/image1_0be31e54-b37f-40b0-b2db-fc62a86098d8_hcg9jk.webp"
+        
         }
       ]
     }

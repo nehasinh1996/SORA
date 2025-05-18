@@ -22,7 +22,7 @@ const CarouselComponent = () => {
   }, []);
 
   return (
-    <Carousel autoplay autoplayDelay={3000} loop className="w-full h-[70vh] mt-10 overflow-hidden">
+    <Carousel autoplay autoplayDelay={2500} loop className="w-full h-[80vh] mt-10 overflow-hidden">
       {images.length > 0 ? (
         images.map((src, idx) => (
           <img

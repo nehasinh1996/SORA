@@ -1,128 +1,185 @@
-import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchCategories, setCategory, setSubcategory } from "../../redux/productsSlice";
-import { sortProducts } from "../../redux/sortby";
-import Banner from "../../components/Banner";
-import ProductCard from "../../components/ProductCard";
-import Header from "../../components/Header";
-import SortBy from "../../components/SortBy";
-import FilterSidebar from "../../components/FilterSidebar";
-import { setFilters, clearFilters } from "../../redux/filterSlice";
+  import { useEffect, useState } from "react";
+  import { useParams, Link } from "react-router-dom";
+  import { useSelector, useDispatch } from "react-redux";
+  import { fetchCategories,setCategory,setSubcategory,} from "../../redux/productsSlice";
+  import { sortProducts } from "../../redux/sortby";
+  import { clearFilters } from "../../redux/filterSlice";
+  import Header from "../../components/Header";
+  import Banner from "../../components/Banner";
+  import SortBy from "../../components/SortBy";
+  import FilterSidebar from "../../components/FilterSidebar";
+  import ProductCard from "../../components/ProductCard";
+  import Pagination from "../../components/Pagination";
+  import { fetchSearchResults } from "../../redux/searchSlice";
 
-const ProductPage = () => {
-  const { categoryName, subCategoryName, productName } = useParams();
-  const dispatch = useDispatch();
+  const ProductPage = () => {
+    const { categoryName, subCategoryName, productName } = useParams();
+    const dispatch = useDispatch();
 
-  const { products } = useSelector((state) => state.products);
-  const sortBy = useSelector((state) => state.sortBy.sortBy);
-  const filters = useSelector((state) => state.filter.filters);
+    const { products } = useSelector((state) => state.products);
+    const { sortBy } = useSelector((state) => state.sortBy);
+    const { filters } = useSelector((state) => state.filter);
+    const { searchQuery, searchResults } = useSelector((state) => state.search);
 
-  // ✅ Fetch categories on component mount
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, [dispatch]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const PRODUCTS_PER_PAGE = 10;
 
-  // ✅ Reset filters and sort on category, subcategory, or product change
-  useEffect(() => {
-    dispatch(clearFilters());
-    localStorage.removeItem("filters");
+    useEffect(() => {
+      dispatch(fetchCategories());
+    }, [dispatch]);
 
-    if (categoryName) dispatch(setCategory(categoryName));
-    if (subCategoryName) dispatch(setSubcategory(subCategoryName));
-  }, [categoryName, subCategoryName, productName, dispatch]);
+    useEffect(() => {
+      dispatch(clearFilters());
+      localStorage.removeItem("filters");
+      if (searchQuery?.trim()) {
+        dispatch(fetchSearchResults(searchQuery));
+      }
+      if (categoryName) dispatch(setCategory(categoryName));
+      if (subCategoryName) dispatch(setSubcategory(subCategoryName));
+    }, [categoryName, subCategoryName, dispatch, searchQuery]);
 
-  useEffect(() => {
-    dispatch(setFilters(filters));
-  }, [filters, dispatch]);
+    const matchesFilters = (product) => {
+      const { concerns, treatment_type, ingredients, priceRange } = filters;
+      const query = searchQuery?.trim().toLowerCase();
 
-  // ✅ Apply filters to products
-  const filteredProducts = products.filter((product) => {
-    const matchesConcerns =
-      filters.concerns.length === 0 || filters.concerns.some((concern) => product.concerns.includes(concern));
+      const matchConcerns =
+        concerns.length === 0 || concerns.some((c) => product.concerns?.includes(c));
+      const matchTreatment =
+        treatment_type.length === 0 || treatment_type.some((t) =>
+          product.treatment_type?.includes(t)
+        );
+      const matchIngredients =
+        ingredients.length === 0 || ingredients.some((i) =>
+          product.ingredients?.includes(i)
+        );
+      const matchPrice = priceRange === undefined || product.price <= priceRange;
 
-    const matchesTreatmentType =
-      filters.treatment_type.length === 0 ||
-      filters.treatment_type.some((type) => product.treatment_type.includes(type));
+      const matchSearchQuery =
+        !query ||
+        product.product_name?.toLowerCase().includes(query) ||
+        product.category?.toLowerCase().includes(query) ||
+        product.subcategory?.toLowerCase().includes(query) ||
+        product.concerns?.some((c) => c.toLowerCase().includes(query)) ||
+        product.treatment_type?.some((t) => t.toLowerCase().includes(query)) ||
+        product.ingredients?.some((i) => i.toLowerCase().includes(query));
 
-    const matchesIngredients =
-      filters.ingredients.length === 0 ||
-      filters.ingredients.some((ingredient) => product.ingredients.includes(ingredient));
+      return matchConcerns && matchTreatment && matchIngredients && matchPrice && matchSearchQuery;
+    };
 
-    return matchesConcerns && matchesTreatmentType && matchesIngredients;
-  });
+    const filteredSearchResults = searchResults.filter(matchesFilters);
+    const filteredProducts = products.filter(matchesFilters); 
 
-  const displayedProducts = productName
-    ? filteredProducts.filter(
-        (p) =>
-          p.product_name.toLowerCase().replace(/\s+/g, "-") ===
-          productName.toLowerCase().replace(/\s+/g, "-")
-      )
-    : sortProducts(filteredProducts, sortBy);
+    const displayedProducts = searchQuery?.trim()
+      ? sortProducts(filteredSearchResults, sortBy)
+      : productName
+      ? sortProducts(
+          filteredProducts.filter(
+            (p) =>
+              p.product_name?.toLowerCase().replace(/\s+/g, "-") ===
+              productName.toLowerCase()
+          ),
+          sortBy
+        )
+      : sortProducts(filteredProducts, sortBy);
 
-  return (
-    <>
-      <Header />
-      <Banner />
+    const totalPages = Math.ceil(displayedProducts.length / PRODUCTS_PER_PAGE);
+    const startIdx = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const currentProducts = displayedProducts.slice(startIdx, startIdx + PRODUCTS_PER_PAGE);
 
-      {/* ✅ Filter and Sort section just below the banner */}
-      <div className="relative flex items-center justify-end px-2 py-3 border-b border-gray-300">
-        <div className="fixed left-0 top-1/4 z-50">
-          <FilterSidebar />
-        </div>
-        <SortBy />
-      </div>
+    const handlePageChange = (page) => {
+      if (page >= 1 && page <= totalPages) {
+        setCurrentPage(page);
+      }
+    };
 
-      <div className="p-6">
-        {/* ✅ Breadcrumb Navigation */}
-        <h1 className="text-sm mb-4">
+    const renderBreadcrumb = () => (
+      <div className="text-xs text-gray-700 pl-4">
+        {categoryName && (
           <Link
             to={`/category/${categoryName}`}
-            className={`$${
-              subCategoryName || productName ? "text-gray-500 hover:underline" : "text-black font-bold"
+            className={`${
+              subCategoryName || productName
+                ? "text-gray-500 hover:underline"
+                : "text-black font-semibold"
             }`}
           >
             {categoryName}
           </Link>
-          {subCategoryName && (
-            <>
-              {" > "}
-              <Link
-                to={`/category/${categoryName}/${subCategoryName}`}
-                className={`$${
-                  productName ? "text-gray-500 hover:underline" : "text-black font-bold"
-                }`}
-              >
-                {subCategoryName}
-              </Link>
-            </>
-          )}
-          {productName && (
-            <>
-              {" > "}
-              <span className="text-black font-bold">
-                {products.find(
-                  (p) =>
-                    p.product_name.toLowerCase().replace(/\s+/g, "-") === productName
-                )?.product_name || productName.replace(/-/g, " ")}
-              </span>
-            </>
-          )}
-        </h1>
-
-        {/* ✅ Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-8 gap-y-10 mt-6">
-          {displayedProducts.length > 0 ? (
-            displayedProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
-          ) : (
-            <p className="text-center text-gray-500 col-span-full">No products found.</p>
-          )}
-        </div>
+        )}
+        {subCategoryName && (
+          <>
+            {" > "}
+            <Link
+              to={`/category/${categoryName}/${subCategoryName}`}
+              className={`${
+                productName ? "text-gray-500 hover:underline" : "text-black font-semibold"
+              }`}
+            >
+              {subCategoryName}
+            </Link>
+          </>
+        )}
+        {productName && (
+          <>
+            {" > "}
+            <span className="text-black font-semibold">
+              {products.find(
+                (p) =>
+                  p.product_name?.toLowerCase().replace(/\s+/g, "-") ===
+                  productName
+              )?.product_name || productName.replace(/-/g, " ")}
+            </span>
+          </>
+        )}
       </div>
-    </>
-  );
-};
+    );
 
-export default ProductPage;
+    return (
+      <>
+        <Header />
+        <Banner />
+
+        {/* Breadcrumb and Sort */}
+        <div className="w-full flex flex-wrap items-center justify-between bg-white border-t border-b border-l border-gray-300 sticky top-[100px] z-50 py-4">
+          {renderBreadcrumb()}
+          <SortBy />
+        </div>
+
+        {/* Layout */}
+        <div className="flex pt-5 min-h-screen">
+          {/* Filter Sidebar */}
+          <div className="w-64 h-fit -mt-23">
+            <FilterSidebar />
+          </div>
+
+          {/* Product Grid */}
+          <div className="flex-1 px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-6">
+              {currentProducts.length > 0 ? (
+                currentProducts.map((product) => (
+                  <div key={product.id}>
+                    <ProductCard product={product} className="product-card" />
+                  </div>
+                ))
+              ) : (
+                <p className="text-center text-gray-500 col-span-full">
+                  No products found.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center px-4 pb-8">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      </>
+    );
+  };
+
+  export default ProductPage;

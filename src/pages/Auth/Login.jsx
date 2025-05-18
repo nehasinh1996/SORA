@@ -26,7 +26,7 @@ const Login = () => {
       <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-[50%] md:flex">
         {/* Left Side - Image */}
         <div className="hidden md:block md:w-1/2 bg-cover bg-center">
-          <img src="login.jpeg" alt="Login" className="w-full h-full object-cover" />
+          <img src="https://res.cloudinary.com/df86jjkhb/image/upload/v1745567293/beautiful-young-woman-white-isolated-wall-holding-cosmetic-face-cream-asian_1258-9682_myhapl.avif" alt="Login" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side - Form */}
@@ -61,7 +61,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={status === "loading"}
-              className={`w-full bg-black text-white p-3 rounded-lg transition-all duration-300 hover:bg-gray-800 ${
+              className={`w-full bg-black text-white p-3 rounded-lg transition-all duration-300 hover:bg-gray-800 cursor-pointer ${
                 status === "loading" ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >

@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 const SortBy = () => {
   const dispatch = useDispatch();
   const sortBy = useSelector((state) => state.sortBy.sortBy);
-  const { categoryName, subCategoryName, productName } = useParams(); // ✅ Detect changes in URL params
+  const { categoryName, subCategoryName, productName } = useParams(); // Detect changes in URL params
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -39,7 +39,7 @@ const SortBy = () => {
       onMouseLeave={() => setIsOpen(false)}
     >
       {/* Dropdown Trigger Box */}
-      <div className="flex items-center gap-2 text-black text-sm font-medium cursor-pointer border border-gray-300 px-4 py-2 hover:border-gray-500 transition">
+      <div className="flex items-center gap-2 text-black text-sm font-medium cursor-pointer border border-gray-300 px-4 py-2 hover:border-gray-500 transition mr-2">
         <span className="text-gray-700">Sort by : </span>
         <span className="font-bold">{selectedLabel}</span>
         <FaChevronDown className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />

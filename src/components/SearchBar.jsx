@@ -2,140 +2,108 @@ import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchQuery, fetchSearchResults } from "../redux/searchSlice";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
-  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-  const [highlightIndex, setHighlightIndex] = useState(-1);
-  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [debounceTimeout, setDebounceTimeout] = useState(null);
+
+  const searchBarRef = useRef(null);
   const navigate = useNavigate();
-  const searchRef = useRef(null);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    fetch("/data/product.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const productNames = data.categories.flatMap((category) =>
-          category.subcategories.flatMap((sub) =>
-            sub.products.map((product) => ({
-              name: product.product_name,
-              id: product.id,
-            }))
-          )
-        );
-        setSuggestions(productNames);
-      })
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
-
-  useEffect(() => {
-    if (query) {
-      const matches = suggestions.filter((p) =>
-        p.name.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredSuggestions(matches);
-    } else {
-      setFilteredSuggestions([]);
-    }
-  }, [query, suggestions]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPlaceholderIndex((prev) => (prev + 1) % suggestions.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [suggestions]);
+  const dispatch = useDispatch();
+  const { searchResults, isLoading } = useSelector((state) => state.search);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target) &&
-        !searchRef.current.contains(event.target)
-      ) {
-        setFilteredSuggestions([]);
+      if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+        setQuery("");
+        dispatch(setSearchQuery(""));
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    return () => {
+      if (debounceTimeout) clearTimeout(debounceTimeout);
+    };
+  }, [debounceTimeout]);
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
-    setHighlightIndex(-1);
+    const value = e.target.value;
+    setQuery(value);
+    dispatch(setSearchQuery(value));
+
+    if (debounceTimeout) clearTimeout(debounceTimeout);
+
+    const timeout = setTimeout(() => {
+      if (value.trim()) dispatch(fetchSearchResults(value));
+    }, 300);
+
+    setDebounceTimeout(timeout);
   };
 
-  const handleSuggestionClick = (product) => {
-    setQuery(product.name);
-    setFilteredSuggestions([]);
-    navigate(`/products/${product.name.replace(/\s+/g, "-").toLowerCase()}`);
+  const handleSearch = (searchTerm) => {
+    if (!searchTerm.trim()) return;
+    dispatch(setSearchQuery(searchTerm));
+    setQuery(searchTerm);
+    navigate(`/products?search=${searchTerm}`);
   };
 
-  const handleSearch = () => {
-    if (!query.trim()) return;
-    const matchedProduct = suggestions.find(
-      (p) => p.name.toLowerCase().replace(/\s+/g, "-") === query.toLowerCase().replace(/\s+/g, "-")
-    );
-
-    if (matchedProduct) {
-      navigate(`/products/${query.replace(/\s+/g, "-").toLowerCase()}`);
-    } else {
-      alert("No products found!");
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowDown") {
-      setHighlightIndex((prev) => (prev < filteredSuggestions.length - 1 ? prev + 1 : 0));
-    } else if (e.key === "ArrowUp") {
-      setHighlightIndex((prev) => (prev > 0 ? prev - 1 : filteredSuggestions.length - 1));
-    } else if (e.key === "Enter") {
-      if (highlightIndex >= 0) {
-        handleSuggestionClick(filteredSuggestions[highlightIndex]);
-      } else {
-        handleSearch();
-      }
-    }
+  const handleClear = () => {
+    setQuery("");
+    dispatch(setSearchQuery(""));
   };
 
   return (
-    <div className="relative w-64 mx-auto mt-2 z-50" ref={searchRef}>
+    <div className="relative w-64 mx-auto mt-2 z-50" ref={searchBarRef}>
       <div className="flex items-center border border-gray-300 rounded-full bg-white shadow-sm h-8">
-        <FaSearch
-          className="text-gray-500 ml-2 cursor-pointer"
-          size={14}
-          onMouseDown={handleSearch}
-        />
+        <div className="ml-2 text-gray-500">
+          <FaSearch size={14} />
+        </div>
         <input
           type="text"
           className="w-full px-3 py-1 text-sm outline-none text-gray-800 bg-transparent"
-          placeholder={`Try ${suggestions[placeholderIndex]?.name || "a product"}`}
+          placeholder="Search for products..."
+          disabled
           value={query}
           onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch(query);
+          }}
         />
-        {query && <IoClose className="text-gray-500 cursor-pointer mr-2" size={16} onClick={() => setQuery("")} />}
+        {query && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className="mr-2 text-gray-500 focus:outline-none"
+          >
+            <IoClose size={16} />
+          </button>
+        )}
       </div>
-      {filteredSuggestions.length > 0 && (
-        <ul
-          ref={dropdownRef}
-          className="absolute left-0 w-full bg-white border border-gray-300 shadow-lg rounded-lg mt-1 max-h-48 overflow-y-auto z-50"
-        >
-          {filteredSuggestions.map((product, index) => (
-            <li
-              key={product.id}
-              className={`px-3 py-2 text-sm cursor-pointer ${
-                index === highlightIndex ? "bg-blue-100" : "hover:bg-blue-50"
-              }`}
-              onMouseEnter={() => setHighlightIndex(index)}
-              onClick={() => handleSuggestionClick(product)}
-            >
-              {product.name}
-            </li>
-          ))}
-        </ul>
+
+      {query && searchResults.length > 0 && (
+        <div className="absolute w-full bg-white border border-gray-200 rounded-md mt-1 max-h-60 overflow-y-auto">
+          {isLoading ? (
+            <p className="text-center py-2">Loading...</p>
+          ) : (
+            searchResults.map((result, index) => (
+              <div
+                key={index}
+                onClick={() => handleSearch(result.product_name)}
+                className="cursor-pointer px-4 py-2 hover:bg-gray-100 text-sm"
+              >
+                {result.product_name}
+              </div>
+            ))
+          )}
+        </div>
       )}
     </div>
   );

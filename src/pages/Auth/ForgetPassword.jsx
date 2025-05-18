@@ -35,16 +35,16 @@ const ForgetPassword = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+  return (  
+    <div className="min-h-screen flex items-center justify-center">
       <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-[50%] md:flex">
         {/* Left Side - Image */}
-        <div className="hidden md:block md:w-1/2 bg-cover bg-center">
-          <img src="forget.jpeg" alt="Forgot Password" className="w-full h-full object-cover" />
+        <div className="hidden md:block md:w-1/2 bg-cover bg-center h-120">
+          <img src="https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/forget_mqcmto.jpg" alt="Forgot Password" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side - Form */}
-        <div className="w-full md:w-1/2 p-8">
+        <div className="w-full md:w-1/2 p-8 pt-26">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Forgot Password</h2>
           <p className="text-gray-600 text-sm mb-6">Enter your email and we will send you a reset link.</p>
 
@@ -65,7 +65,7 @@ const ForgetPassword = () => {
 
             <button
               type="submit"
-              className="w-full bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition disabled:opacity-50"
+              className="w-full bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition disabled:opacity-50 cursor-pointer"
               disabled={loading}
             >
               {loading ? "Sending..." : "Submit"}
@@ -73,7 +73,7 @@ const ForgetPassword = () => {
           </form>
 
           <div className="text-center mt-4 text-gray-600 text-sm">
-            <button onClick={() => navigate("/login")} className="hover:underline">Cancel</button>
+            <button onClick={() => navigate("/login")} className="hover:underline cursor-pointer">Cancel</button>
           </div>
         </div>
       </div>

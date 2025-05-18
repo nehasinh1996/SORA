@@ -70,10 +70,10 @@ const ProductCard = ({ product, wishlistView = false }) => {
 
         {/* ✅ Product Details */}
         <div className="text-center py-2">
-          <h2 className="text-md font-semibold text-gray-900 line-clamp-1">
+          <h2 className="text-sm font-semibold text-gray-900 line-clamp-1">
             {product.product_name || "Unnamed Product"}
           </h2>
-          <p className="text-gray-700 font-semibold text-md">
+          <p className="text-gray-700 font-semibold text-sm">
             Rs. {Number(product.price).toLocaleString() || "N/A"}
           </p>
 

@@ -30,7 +30,7 @@ const Signup = () => {
 
     const { name, phone, email, password } = formData;
 
-    // 🛑 Frontend Validation
+    // Frontend Validation
     if (!name || !phone || !email || !password) {
       setError("All fields are required.");
       setLoading(false);
@@ -79,7 +79,7 @@ const Signup = () => {
     <div className="min-h-screen flex items-center justify-center bg-[#ffffff]">
       <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-[50%] md:flex">
         <div className="hidden md:block md:w-1/2 bg-cover bg-center">
-          <img src="signup.jpeg" alt="Sign Up" className="w-full h-full object-cover" />
+          <img src="https://res.cloudinary.com/df86jjkhb/image/upload/v1741518798/5_j9od00.png" alt="Sign Up" className="w-full h-full object-cover" />
         </div>
 
         <div className="w-full md:w-1/2 p-8">
@@ -133,7 +133,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition duration-300 ${
+              className={`w-full bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition duration-300 cursor-pointer ${
                 loading && "opacity-50 cursor-not-allowed"
               }`}
             >

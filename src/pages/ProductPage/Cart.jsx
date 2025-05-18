@@ -69,7 +69,7 @@ const Cart = () => {
         <p className="text-gray-500">Your cart is empty!</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* ✅ Left Section: Cart Items with Scroll */}
+          {/* ✅Left Section: Cart Items with Scroll */}
           <div className="col-span-2 bg-white p-5 rounded-md shadow max-h-[500px] overflow-y-auto">
             {cartItems.map((item) => (
               <div
@@ -77,12 +77,12 @@ const Cart = () => {
                 className="flex justify-between items-center border-b py-4"
               >
                 <div className="flex gap-4 items-start">
-                  {/* ✅ Product Image with Link to Product Detail */}
+                  {/*  Product Image with Link to Product Detail */}
                   <img
                     src={item.image_url || "/placeholder.jpg"}
                     alt={item.product_name}
                     className="w-24 h-24 object-cover rounded cursor-pointer hover:scale-105 transition"
-                    onClick={() => handleNavigateToDetail(item.id)} // ✅ Navigate to detail
+                    onClick={() => handleNavigateToDetail(item.id)} //  Navigate to detail
                   />
                   {/* Product Details */}
                   <div>
@@ -93,7 +93,7 @@ const Cart = () => {
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() => dispatch(decrementQuantity(item.id))}
-                        className={`w-8 h-8 rounded-full border text-lg ${
+                        className={`w-8 h-8 rounded-full border text-lg cursor-pointer ${
                           item.quantity === 1
                             ? "bg-gray-200 cursor-not-allowed"
                             : "bg-gray-100 hover:bg-gray-300"
@@ -110,7 +110,7 @@ const Cart = () => {
                       />
                       <button
                         onClick={() => dispatch(incrementQuantity(item.id))}
-                        className="w-8 h-8 rounded-full border text-lg bg-gray-100 hover:bg-gray-300"
+                        className="w-8 h-8 rounded-full border text-lg bg-gray-100 hover:bg-gray-300 cursor-pointer"
                       >
                         +
                       </button>
@@ -120,13 +120,13 @@ const Cart = () => {
                     <div className="flex items-center gap-4 mt-2">
                       <button
                         onClick={() => handleConfirmAction("wishlist", item)}
-                        className="text-blue-500 hover:underline"
+                        className="text-black hover:underline cursor-pointer"
                       >
                         Add to Wishlist
                       </button>
                       <button
                         onClick={() => handleConfirmAction("remove", item)}
-                        className="text-red-500 hover:underline"
+                        className="text-black hover:underline cursor-pointer"
                       >
                         Remove
                       </button>
@@ -147,13 +147,13 @@ const Cart = () => {
               <span>Price ({totalItems} items)</span>
               <span>Rs. {totalPrice.toLocaleString()}</span>
             </div>
-            <div className="flex justify-between text-green-600 mb-2">
+            <div className="flex justify-between text-gray-600 mb-2">
               <span>Discount</span>
               <span>- Rs. 0</span>
             </div>
             <div className="flex justify-between text-gray-600 mb-2">
               <span>Delivery Charges</span>
-              <span className="text-green-500">Free</span>
+              <span className="text-gray-800">Free</span>
             </div>
             <div className="flex justify-between border-t pt-2 mt-2 font-semibold">
               <span>Total Amount</span>
@@ -163,7 +163,7 @@ const Cart = () => {
             {/* ✅ Place Order Button */}
             <button
               onClick={handlePlaceOrder}
-              className="mt-5 w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition"
+              className="mt-5 w-full bg-black text-white py-3 rounded-lg font-semibold transition cursor-pointer"
             >
               PLACE ORDER
             </button>
@@ -173,30 +173,38 @@ const Cart = () => {
 
       {/* ✅ Confirmation Modal */}
       {confirmAction && selectedItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h3 className="text-xl font-semibold mb-4">
-              Are you sure you want to{" "}
-              {confirmAction === "remove" ? "remove" : "add to wishlist"} this
-              item?
-            </h3>
-            <div className="flex gap-4 justify-center">
-              <button
-                onClick={handleConfirmYes}
-                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-              >
-                Yes
-              </button>
-              <button
-                onClick={() => setConfirmAction(null)}
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                No
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+    <div className="relative bg-white p-6 rounded-lg shadow-lg text-center w-[90%] max-w-md">
+      {/* ❌ Close Icon */}
+      <button
+        onClick={() => setConfirmAction(null)}
+        className="absolute top-2 right-2 text-3xl text-gray-600 hover:text-black cursor-pointer"
+      >
+        &times;
+      </button>
+
+      <h3 className="text-xl font-semibold mb-4 mt-6">
+        Are you sure you want to{" "}
+        {confirmAction === "remove" ? "remove" : "add to wishlist"} this item?
+      </h3>
+      <div className="flex gap-4 justify-center">
+        <button
+          onClick={handleConfirmYes}
+          className="bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-700"
+        >
+          Yes
+        </button>
+        <button
+          onClick={() => setConfirmAction(null)}
+          className="bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-700"
+        >
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

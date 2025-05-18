@@ -119,14 +119,14 @@ const ProductDetail = () => {
             <div className="flex gap-4">
               <button
                 onClick={handleAddToCart}
-                className="bg-white text-gray-600 px-6 py-3 rounded-lg font-semibold transition duration-300 transform hover:bg-gray-500 hover:scale-105 border-2 border-black"
+                className="bg-white text-gray-600 px-6 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105 border-2 border-black cursor-pointer"
               >
                 🛒 ADD TO CART
               </button>
 
               <button
                 onClick={handleAddToWishlist}
-                className="text-gray-600 px-3 py-1 rounded-lg font-semibold transition duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-black"
+                className="text-gray-600 px-3 py-1 rounded-lg font-semibold transition duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-black cursor-pointer"
               >
                 ❤️ ADD TO WISHLIST
               </button>

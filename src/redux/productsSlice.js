@@ -38,6 +38,8 @@ const initialState = {
   products: [],
   selectedProduct: null, // Added for single product details
   status: "idle",
+  minPrice: 0,
+  maxPrice: 0, 
 };
 
 const productsSlice = createSlice({
@@ -77,24 +79,39 @@ const productsSlice = createSlice({
         state.status = "succeeded";
         state.categories = action.payload;
 
-        if (state.selectedCategory) {
-          const category = state.categories.find(
-            (cat) => cat.category_name === state.selectedCategory
-          );
-          state.products = category
-            ? category.subcategories.flatMap((sub) => sub.products)
-            : [];
-        }
+        let allProducts = [];
 
-        if (state.selectedSubcategory) {
-          const category = state.categories.find(
-            (cat) => cat.category_name === state.selectedCategory
-          );
-          const subcategory = category?.subcategories.find(
-            (sub) => sub.subcategory_name === state.selectedSubcategory
-          );
-          state.products = subcategory ? subcategory.products : [];
-        }
+if (state.selectedCategory) {
+  const category = state.categories.find(
+    (cat) => cat.category_name === state.selectedCategory
+  );
+  allProducts = category
+    ? category.subcategories.flatMap((sub) => sub.products)
+    : [];
+  state.products = allProducts;
+}
+
+if (state.selectedSubcategory) {
+  const category = state.categories.find(
+    (cat) => cat.category_name === state.selectedCategory
+  );
+  const subcategory = category?.subcategories.find(
+    (sub) => sub.subcategory_name === state.selectedSubcategory
+  );
+  allProducts = subcategory ? subcategory.products : [];
+  state.products = allProducts;
+}
+
+// ✅ Set min and max price from allProducts
+if (allProducts.length > 0) {
+  const prices = allProducts.map((p) => p.price);
+  state.minPrice = Math.min(...prices);
+  state.maxPrice = Math.max(...prices);
+} else {
+  state.minPrice = 0;
+  state.maxPrice = 0;
+}
+
       })
       .addCase(fetchCategories.rejected, (state) => {
         state.status = "failed";

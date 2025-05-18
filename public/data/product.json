@@ -86,7 +86,7 @@
               "concerns": ["Chapped Lips"],
               "treatment_type": ["Exfoliation"],
               "ingredients": ["Sugar", "Peppermint Oil"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip1_imnwme.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/Lipcare_banner_jjzepk.png"
             },
             {
               "id": 8,
@@ -157,7 +157,7 @@
               "concerns": ["Dry Lips", "Lip Freshness"],
               "treatment_type": ["Repairing"],
               "ingredients": ["Peppermint Oil", "Hyaluronic Acid"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518794/lip1_imnwme.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/Lipcare_banner_jjzepk.png"
             },
             {
               "id": 14,
@@ -381,7 +381,7 @@
               "concerns": ["Teeth Stains"],
               "treatment_type": ["Whitening"],
               "ingredients": ["Baking Soda", "Hydrated Silica"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805814/sanju-pandita-FCepQ_YfY44-unsplash_ihgd9k.jpg"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1747509656/natural-ingredient-1000x650_lzvhv3.jpg"
             },
             {
               "id": 32,
@@ -403,7 +403,7 @@
               "concerns": ["Natural Ingredients"],
               "treatment_type": ["Cleansing"],
               "ingredients": ["Neem Extract", "Clove"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741805815/birgith-roosipuu-GdsFTnarsog-unsplash_ov6y2l.jpg"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1747509949/ffd58dc7708d805a6b8fc8f76dfe1b4a_divpnm.jpg"
             },
             {
               "id": 34,
@@ -425,7 +425,7 @@
               "concerns": ["Cavities"],
               "treatment_type": ["Protection"],
               "ingredients": ["Fluoride", "Calcium Carbonate"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445908/s16_r9tz6x.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1747509655/images_hpvb3n.jpg"
             }
           ]
         },
@@ -545,7 +545,7 @@
               "concerns": ["Dry Skin"],
               "treatment_type": ["Moisturizing"],
               "ingredients": ["Rose Extract", "Vitamin E"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445877/hr8_q6ydeo.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1747507125/cosmetiques-bio-min_xkbpwl.jpg"
             }
           ]
         },
@@ -627,7 +627,7 @@
               "concerns": ["Oily Skin"],
               "treatment_type": ["Deep Cleansing"],
               "ingredients": ["Salicylic Acid", "Green Tea"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s14_oquvqr.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445908/s16_r9tz6x.png"
             },
             {
               "id": 52,
@@ -638,7 +638,8 @@
               "concerns": ["Sensitive Skin"],
               "treatment_type": ["Gentle Cleansing"],
               "ingredients": ["Aloe Vera", "Cucumber Extract"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445908/s16_r9tz6x.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/sk4_kwsirr.png"
+              
             },
             {
               "id": 53,
@@ -649,7 +650,7 @@
               "concerns": ["Acne Prone Skin"],
               "treatment_type": ["Clarifying"],
               "ingredients": ["Salicylic Acid", "Tea Tree Oil"],
-              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741518796/sk4_kwsirr.png"
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445907/s14_oquvqr.png"
             },
             {
               "id": 54,

@@ -5,7 +5,7 @@ import filterReducer from "./filterSlice";
 import sortByReducer from "./sortby";
 import wishlistReducer from "./wishlistSlice";
 import cartReducer from "./cartSlice";
-import authReducer from "./authSlice"; // ✅ Import authReducer
+import authReducer from "./authSlice"; 
 import searchReducer from "./searchSlice";
 
 const store = configureStore({
@@ -16,7 +16,7 @@ const store = configureStore({
     sortBy: sortByReducer,
     wishlist: wishlistReducer,
     cart: cartReducer,
-    auth: authReducer, // ✅ Add auth reducer
+    auth: authReducer, 
     search: searchReducer,
   },
   devTools: import.meta.env.MODE !== "production",
