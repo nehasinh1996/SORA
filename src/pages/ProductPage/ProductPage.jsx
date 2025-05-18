@@ -140,7 +140,7 @@
         <Banner />
 
         {/* Breadcrumb and Sort */}
-        <div className="w-full flex flex-wrap items-center justify-between bg-white border-t border-b border-l border-gray-300 sticky top-[100px] z-50 py-4">
+        <div className="w-full flex flex-wrap items-center justify-between bg-white border-t border-b border-l border-gray-300 sticky top-[120px] z-50 py-4">
           {renderBreadcrumb()}
           <SortBy />
         </div>
