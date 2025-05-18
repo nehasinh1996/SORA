@@ -44,8 +44,6 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Layout>
-          {/* Search bar included globally */}
-          <SearchBar />
 
           <Routes>
             {/* Public Routes */}

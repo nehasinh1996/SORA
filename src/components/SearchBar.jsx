@@ -61,16 +61,15 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-64 mx-auto mt-2 z-50" ref={searchBarRef}>
-      <div className="flex items-center border border-gray-300 rounded-full bg-white shadow-sm h-8">
-        <div className="ml-2 text-gray-500">
-          <FaSearch size={14} />
+    <div className="relative w-full sm:w-72 md:w-96 lg:w-[28rem] mx-auto mt-2 z-50" ref={searchBarRef}>
+      <div className="flex items-center border border-gray-300 rounded-full bg-white shadow-sm h-10 md:h-12">
+        <div className="ml-3 text-gray-500">
+          <FaSearch size={16} />
         </div>
         <input
           type="text"
           className="w-full px-3 py-1 text-sm outline-none text-gray-800 bg-transparent"
           placeholder="Search for products..."
-          disabled
           value={query}
           onChange={handleChange}
           onKeyDown={(e) => {
@@ -81,15 +80,15 @@ const SearchBar = () => {
           <button
             type="button"
             onClick={handleClear}
-            className="mr-2 text-gray-500 focus:outline-none"
+            className="mr-3 text-gray-500 focus:outline-none"
           >
-            <IoClose size={16} />
+            <IoClose size={18} />
           </button>
         )}
       </div>
 
       {query && searchResults.length > 0 && (
-        <div className="absolute w-full bg-white border border-gray-200 rounded-md mt-1 max-h-60 overflow-y-auto">
+        <div className="absolute w-full max-w-sm sm:max-w-md lg:max-w-lg bg-white border border-gray-200 rounded-md mt-1 max-h-60 overflow-y-auto">
           {isLoading ? (
             <p className="text-center py-2">Loading...</p>
           ) : (

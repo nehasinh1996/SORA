@@ -34,10 +34,10 @@ const Navbar = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="max-w-[1280px] mx-auto px-6 flex items-center py-3 transition-colors duration-300">
+      <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-3">
         
         {/*  Left: Logo (Independent) */}
-        <div className="absolute left-12">
+        <div className="flex-shrink-0">
           <Logo />
         </div>
 
@@ -59,19 +59,21 @@ const Navbar = () => {
         </div>
 
         {/*  Right: Wishlist & Cart (Independent, Aligned to Right) */}
-        <div className="absolute right-12 flex items-center space-x-6">
-          <Link to="/wishlist" title="Wishlist" className="relative">
-            <HeartIcon className="w-7 h-7 text-black hover:text-gray-600 transition duration-300" />
-          </Link>
-          <Link to="/cart" title="Cart" className="relative">
-            <ShoppingCartIcon className="w-7 h-7 text-black hover:text-gray-600 transition duration-300" />
-            {cartItemCount > 0 && (
-              <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                {cartItemCount}
-              </span>
-            )}
-          </Link>
-        </div>
+        {/* Right: Wishlist & Cart (Independent, Aligned to Right) */}
+<div className="absolute right-4 sm:right-8 md:right-12 flex items-center gap-4 sm:gap-6 flex-wrap">
+  <Link to="/wishlist" title="Wishlist" className="relative">
+    <HeartIcon className="w-6 h-6 sm:w-7 sm:h-7 text-black hover:text-gray-600 transition duration-300" />
+  </Link>
+  <Link to="/cart" title="Cart" className="relative">
+    <ShoppingCartIcon className="w-6 h-6 sm:w-7 sm:h-7 text-black hover:text-gray-600 transition duration-300" />
+    {cartItemCount > 0 && (
+      <span className="absolute -top-1 -right-1 sm:-right-2 bg-red-500 text-white text-[10px] sm:text-xs w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center rounded-full">
+        {cartItemCount}
+      </span>
+    )}
+  </Link>
+</div>
+
       </div>
     </nav>
   );

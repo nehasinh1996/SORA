@@ -60,7 +60,7 @@ const Categories = () => {
   if (status === "failed") return <p>Error loading categories.</p>;
 
   return (
-    <ul className="flex space-x-6 text-gray-700 font-medium relative">
+    <ul className="flex flex-wrap gap-4 sm:gap-6 text-gray-700 font-medium relative">
       {visibleCategories.map((category) => (
         <li
           key={category.category_name}
