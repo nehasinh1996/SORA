@@ -95,7 +95,7 @@ const Categories = () => {
                     <Link
                       to={`/category/${category.category_name}/${sub.subcategory_name}`}
                       onClick={() => handleNavigation(sub.subcategory_name)}
-                      className="flex items-center hover:text-black"
+                      className="flex items-center hover:text-black hover:bg-gray-100"
                     >
                       {sub.subcategory_name}
                       {sub.products?.length > 0 && <ChevronRightIcon className="w-4 h-4 ml-2" />}
