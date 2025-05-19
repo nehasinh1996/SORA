@@ -22,20 +22,22 @@ const CarouselComponent = () => {
   }, []);
 
   return (
-    <Carousel autoplay autoplayDelay={2500} loop className="w-full h-[80vh] mt-10 overflow-hidden">
-      {images.length > 0 ? (
-        images.map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={`slide ${idx + 1}`}
-            className="w-full h-full object-cover"
-          />
-        ))
-      ) : (
-        <p className="text-center text-gray-500">Loading images...</p>
-      )}
-    </Carousel>
+    <Carousel autoplay autoplayDelay={2500} loop className="w-full h-[90vh] mt-10 overflow-hidden">
+  {images.length > 0 ? (
+    images.map((src, idx) => (
+      <div key={idx} className="w-full h-full overflow-hidden">
+        <img
+          src={src}
+          alt={`slide ${idx + 1}`}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ))
+  ) : (
+    <p className="text-center text-gray-500">Loading images...</p>
+  )}
+</Carousel>
+
   );
 };
 

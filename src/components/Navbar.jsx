@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
 
         {/*  Search Bar (Independent) */}
-        <div className="flex items-center w-auto">
+        <div className="flex items-center w-auto mb-1">
           <SearchBar />
         </div>
 

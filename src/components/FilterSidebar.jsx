@@ -1,3 +1,4 @@
+// FilterSidebar.js
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters, clearFilters } from "../redux/filterSlice";
@@ -24,14 +25,15 @@ const FilterSidebar = () => {
     };
   }, [memoizedCategories]);
 
-  const [selectedFilters, setSelectedFilters] = useState({
+  const getInitialFilters = () => ({
     concerns: [],
     treatment_type: [],
     ingredients: [],
     priceRange: highestPrice,
   });
 
-  // Load filters from localStorage (only set local state here)
+  const [selectedFilters, setSelectedFilters] = useState(getInitialFilters);
+
   useEffect(() => {
     if (!searchQuery?.trim()) {
       const savedFilters = localStorage.getItem("filters");
@@ -48,65 +50,41 @@ const FilterSidebar = () => {
     }
   }, [searchQuery]);
 
-  // Now update Redux store based on local state change
   useEffect(() => {
     if (!searchQuery?.trim()) {
       dispatch(setFilters(selectedFilters));
     }
   }, [selectedFilters, searchQuery, dispatch]);
 
-  // Reset local filters when category or subcategory changes
   useEffect(() => {
-    const initialFilters = {
-      concerns: [],
-      treatment_type: [],
-      ingredients: [],
-      priceRange: highestPrice,
-    };
-    setSelectedFilters(initialFilters);
-  }, [categoryName, subCategoryName, highestPrice]);
-
-  // Clear Redux filters after state reset
-  useEffect(() => {
+    setSelectedFilters(getInitialFilters());
     dispatch(clearFilters());
     localStorage.removeItem("filters");
-  }, [categoryName, subCategoryName, dispatch]);
+  }, [categoryName, subCategoryName, highestPrice, dispatch]);
 
   const handlePriceChange = (e) => {
     const price = parseInt(e.target.value);
     setSelectedFilters((prevFilters) => {
-      const updatedFilters = { ...prevFilters, priceRange: price };
-      localStorage.setItem("filters", JSON.stringify(updatedFilters));
-      return updatedFilters;
+      const updated = { ...prevFilters, priceRange: price };
+      localStorage.setItem("filters", JSON.stringify(updated));
+      return updated;
     });
   };
 
-  const handleFilterChange = useCallback(
-    (category, value) => {
-      setSelectedFilters((prevFilters) => {
-        const updatedFilters = { ...prevFilters };
-        if (!updatedFilters[category]) updatedFilters[category] = [];
-
-        if (updatedFilters[category].includes(value)) {
-          updatedFilters[category] = updatedFilters[category].filter((v) => v !== value);
-        } else {
-          updatedFilters[category] = [...updatedFilters[category], value];
-        }
-
-        localStorage.setItem("filters", JSON.stringify(updatedFilters));
-        return updatedFilters;
-      });
-    },
-    []
-  );
+  const handleFilterChange = useCallback((category, value) => {
+    setSelectedFilters((prevFilters) => {
+      const updated = { ...prevFilters };
+      updated[category] = updated[category] || [];
+      updated[category] = updated[category].includes(value)
+        ? updated[category].filter((v) => v !== value)
+        : [...updated[category], value];
+      localStorage.setItem("filters", JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
 
   const handleClearFilters = useCallback(() => {
-    const cleared = {
-      concerns: [],
-      treatment_type: [],
-      ingredients: [],
-      priceRange: highestPrice,
-    };
+    const cleared = getInitialFilters();
     setSelectedFilters(cleared);
     dispatch(clearFilters());
     dispatch(setSearchQuery(""));
@@ -114,75 +92,46 @@ const FilterSidebar = () => {
   }, [dispatch, highestPrice]);
 
   const filterOptions = useMemo(() => {
-    if (searchQuery?.trim()) {
-      return { concerns: [], treatment_type: [], ingredients: [] };
-    }
+    if (searchQuery?.trim()) return getInitialFilters();
+
+    const selectedCategory = memoizedCategories.find((cat) => cat.category_name === categoryName);
+    if (!selectedCategory) return getInitialFilters();
 
     let products = [];
-    const selectedCategory = memoizedCategories.find(
-      (cat) => cat.category_name === categoryName
-    );
-    if (!selectedCategory) return { concerns: [], treatment_type: [], ingredients: [] };
-
     if (productName) {
-      const selectedSubcategory = selectedCategory.subcategories.find(
-        (sub) => sub.subcategory_name === subCategoryName
-      );
-
-      const product = selectedSubcategory?.products.find(
-        (prod) => prod.product_name === productName
-      );
-
-      if (product) {
-        return {
-          concerns: product.concerns || [],
-          treatment_type: product.treatment_type || [],
-          ingredients: product.ingredients || [],
-        };
-      }
-
-      return { concerns: [], treatment_type: [], ingredients: [] };
+      const sub = selectedCategory.subcategories.find((s) => s.subcategory_name === subCategoryName);
+      const product = sub?.products.find((p) => p.product_name === productName);
+      return product
+        ? {
+            concerns: product.concerns || [],
+            treatment_type: product.treatment_type || [],
+            ingredients: product.ingredients || [],
+          }
+        : getInitialFilters();
     }
 
     if (subCategoryName) {
-      const selectedSubcategory = selectedCategory.subcategories.find(
-        (sub) => sub.subcategory_name === subCategoryName
-      );
-      if (selectedSubcategory) {
-        products = selectedSubcategory.products;
-      }
+      const sub = selectedCategory.subcategories.find((s) => s.subcategory_name === subCategoryName);
+      products = sub ? sub.products : [];
     } else {
-      products = selectedCategory.subcategories.flatMap((sub) => sub.products);
+      products = selectedCategory.subcategories.flatMap((s) => s.products);
     }
 
-    products = products.filter((product) => product.price <= selectedFilters.priceRange);
+    products = products.filter((p) => p.price <= selectedFilters.priceRange);
 
-    if (selectedFilters.concerns.length > 0) {
-      products = products.filter((product) =>
-        selectedFilters.concerns.every((concern) => product.concerns.includes(concern))
-      );
-    }
+    if (selectedFilters.concerns.length)
+      products = products.filter((p) => selectedFilters.concerns.every((c) => p.concerns.includes(c)));
 
-    if (selectedFilters.treatment_type.length > 0) {
-      products = products.filter((product) =>
-        selectedFilters.treatment_type.every((type) => product.treatment_type.includes(type))
-      );
-    }
+    if (selectedFilters.treatment_type.length)
+      products = products.filter((p) => selectedFilters.treatment_type.every((t) => p.treatment_type.includes(t)));
 
-    if (selectedFilters.ingredients.length > 0) {
-      products = products.filter((product) =>
-        selectedFilters.ingredients.every((ingredient) => product.ingredients.includes(ingredient))
-      );
-    }
-
-    const availableConcerns = [...new Set(products.flatMap((p) => p.concerns || []))];
-    const availableTreatmentTypes = [...new Set(products.flatMap((p) => p.treatment_type || []))];
-    const availableIngredients = [...new Set(products.flatMap((p) => p.ingredients || []))];
+    if (selectedFilters.ingredients.length)
+      products = products.filter((p) => selectedFilters.ingredients.every((i) => p.ingredients.includes(i)));
 
     return {
-      concerns: availableConcerns,
-      treatment_type: availableTreatmentTypes,
-      ingredients: availableIngredients,
+      concerns: [...new Set(products.flatMap((p) => p.concerns || []))],
+      treatment_type: [...new Set(products.flatMap((p) => p.treatment_type || []))],
+      ingredients: [...new Set(products.flatMap((p) => p.ingredients || []))],
     };
   }, [memoizedCategories, categoryName, subCategoryName, productName, selectedFilters, searchQuery]);
 

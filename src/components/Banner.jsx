@@ -42,7 +42,7 @@ const Banner = () => {
   if (!banner) return null; // No banner found, don't render
 
   return (
-    <div className="relative w-full h-[420px] flex items-center bg-gray-200 overflow-hidden mt-[120px]">
+    <div className="relative w-full h-[420px] flex items-center bg-gray-200 overflow-hidden mt-[100px]">
 
       {/* Left: Banner Image */}
       <div className="w-1/2 h-full">

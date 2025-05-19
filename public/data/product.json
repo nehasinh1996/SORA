@@ -148,6 +148,20 @@
               "ingredients": ["Hyaluronic Acid", "Vitamin E"],
               "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445884/l11_kzqgai.png"
             },
+
+            {
+              "id": 501,
+              "product_name": "Hydrating Lip Mask",
+              "price": 389,
+              "sales": 90,
+              "date_added": "2024-03-20",
+              "concerns": ["Dry Lips", "Lip Freshness"],
+              "treatment_type": ["Hydration"],
+              "ingredients": ["Peppermint Oil", "Hyaluronic Acid"],
+              "image_url": "https://res.cloudinary.com/df86jjkhb/image/upload/v1741445885/Lipcare_banner_jjzepk.png"
+            },
+
+            
             {
               "id": 13,
               "product_name": "Cooling Lip Mask",

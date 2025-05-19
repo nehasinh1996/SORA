@@ -34,47 +34,26 @@ const SearchBar = () => {
     };
   }, [debounceTimeout]);
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-    dispatch(setSearchQuery(value));
-
-    if (debounceTimeout) clearTimeout(debounceTimeout);
-
-    const timeout = setTimeout(() => {
-      if (value.trim()) dispatch(fetchSearchResults(value));
-    }, 300);
-
-    setDebounceTimeout(timeout);
-  };
-
-  const handleSearch = (searchTerm) => {
-    if (!searchTerm.trim()) return;
-    dispatch(setSearchQuery(searchTerm));
-    setQuery(searchTerm);
-    navigate(`/products?search=${searchTerm}`);
-  };
-
   const handleClear = () => {
     setQuery("");
     dispatch(setSearchQuery(""));
   };
 
   return (
-    <div className="relative w-full sm:w-72 md:w-96 lg:w-[28rem] mx-auto mt-2 z-50" ref={searchBarRef}>
-      <div className="flex items-center border border-gray-300 rounded-full bg-white shadow-sm h-10 md:h-12">
+    <div
+      className="relative w-72 sm:w-60 md:w-72 lg:w-64 mx-auto mt-2 z-50"
+      ref={searchBarRef}
+    >
+      <div className="flex items-center border border-gray-300 rounded-full bg-white shadow-sm h-10 md:h-12 lg:h-8">
         <div className="ml-3 text-gray-500">
-          <FaSearch size={16} />
+          <FaSearch size={14} />
         </div>
         <input
           type="text"
-          className="w-full px-3 py-1 text-sm outline-none text-gray-800 bg-transparent"
+          className="w-60 sm:w-52 md:w-64 lg:w-56 px-3 py-1 text-sm outline-none text-gray-800 bg-transparent"
           placeholder="Search for products..."
           value={query}
-          onChange={handleChange}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") handleSearch(query);
-          }}
+          disabled
         />
         {query && (
           <button
@@ -82,7 +61,7 @@ const SearchBar = () => {
             onClick={handleClear}
             className="mr-3 text-gray-500 focus:outline-none"
           >
-            <IoClose size={18} />
+            <IoClose size={16} />
           </button>
         )}
       </div>
@@ -95,7 +74,6 @@ const SearchBar = () => {
             searchResults.map((result, index) => (
               <div
                 key={index}
-                onClick={() => handleSearch(result.product_name)}
                 className="cursor-pointer px-4 py-2 hover:bg-gray-100 text-sm"
               >
                 {result.product_name}

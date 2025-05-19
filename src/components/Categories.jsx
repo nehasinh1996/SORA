@@ -70,7 +70,7 @@ const Categories = () => {
         >
           <Link
             to={`/category/${category.category_name}`}
-            className="hover:text-black"
+            className="hover:text-black hover:underline hover:decoration-gray-500"
             onClick={() => handleNavigation()}
           >
             {category.category_name}
@@ -115,7 +115,7 @@ const Categories = () => {
                         animate="visible"
                         className="text-xs text-gray-600"
                       >
-                        {sub.products.map((product) => (
+                        {Array.from(new Map(sub.products.map(item => [item.product_name, item])).values()).map((product) => (
                           <motion.li
                             key={product.id}
                             variants={subcategoryChildVariant}

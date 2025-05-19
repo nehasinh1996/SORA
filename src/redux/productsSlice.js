@@ -69,6 +69,10 @@ const productsSlice = createSlice({
       );
       state.products = subcategory ? subcategory.products : [];
     },
+    setProduct: (state, action) => {
+  state.selectedProduct = action.payload;
+  }
+
   },
   extraReducers: (builder) => {
     builder
@@ -130,5 +134,5 @@ if (allProducts.length > 0) {
   },
 });
 
-export const { setCategory, setSubcategory } = productsSlice.actions;
+export const { setCategory, setSubcategory, setProduct } = productsSlice.actions;
 export default productsSlice.reducer;
